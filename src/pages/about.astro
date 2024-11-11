@@ -1,228 +1,182 @@
 ---
-import Features2 from '~/components/widgets/Features2.astro';
-import Features3 from '~/components/widgets/Features3.astro';
-import Hero from '~/components/widgets/Hero.astro';
-import Stats from '~/components/widgets/Stats.astro';
-import Steps2 from '~/components/widgets/Steps2.astro';
 import Layout from '~/layouts/PageLayout.astro';
+import Hero from '~/components/widgets/Hero.astro';
+import Content from '~/components/widgets/Content.astro';
+import Features from '~/components/widgets/Features.astro';
+import Stats from '~/components/widgets/Stats.astro';
 
 const metadata = {
-  title: 'About us',
+  title: 'About VISWAM.ai',
+  description: 'Pioneering AI Solutions for the Global South',
 };
+
+// Journey timeline data
+const journeyItems = [
+  {
+    year: '2004',
+    title: 'Swecha Foundation',
+    description: 'Launch of Swecha, the first Telugu OS, marking our commitment to localized technology solutions',
+  },
+  {
+    year: '2014',
+    title: 'BalaSwecha Initiative',
+    description: 'Development of educational software ecosystem, training over 500 teachers',
+  },
+  {
+    year: '2020',
+    title: 'AI Initiative Launch',
+    description: 'Beginning of our focused AI development for the Global South',
+  },
+  {
+    year: '2023',
+    title: 'VISWAM.ai Establishment',
+    description: 'Formation of the Centre of Excellence on AI for the Global South',
+  },
+];
+
+const leadershipTeam = [
+  {
+    initials: 'YK',
+    name: 'Y Kiran Chandra',
+    role: 'Centre Director',
+  },
+  {
+    initials: 'PJ',
+    name: 'Prof PJ Narayanan',
+    role: 'Research Director',
+  },
+  {
+    initials: 'JR',
+    name: 'Jayesh Ranjan',
+    role: 'Advisory Board',
+  },
+];
+
+const focusAreas = [
+  {
+    title: 'Language & Culture',
+    description: 'Preserving and promoting linguistic diversity through AI',
+    icon: 'tabler:language',
+  },
+  {
+    title: 'Education',
+    description: 'AI-powered learning solutions for diverse communities',
+    icon: 'tabler:school',
+  },
+  {
+    title: 'Agriculture',
+    description: 'Smart farming solutions for small-scale farmers',
+    icon: 'tabler:plant',
+  },
+  {
+    title: 'Healthcare',
+    description: 'Accessible healthcare solutions through AI',
+    icon: 'tabler:activity',
+  },
+];
 ---
 
 <Layout metadata={metadata}>
-  <!-- Hero Widget ******************* -->
-
+  <!-- Hero -->
   <Hero
-    tagline="About us"
-    image={{
-      src: 'https://images.unsplash.com/photo-1559136555-9303baea8ebd?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80',
-      alt: 'Caos Image',
-    }}
+    tagline="About VISWAM.ai"
+    title="Pioneering AI Solutions for the Global South"
   >
-    <Fragment slot="title">
-      Elevate your online presence with our <br />
-      <span class="text-accent dark:text-white highlight"> Beautiful Website Templates</span>
-    </Fragment>
-
     <Fragment slot="subtitle">
-      Donec efficitur, ipsum quis congue luctus, mauris magna convallis mauris, eu auctor nisi lectus non augue. Donec
-      quis lorem non massa vulputate efficitur ac at turpis. Sed tincidunt ex a nunc convallis, et lobortis nisi tempus.
-      Suspendisse vitae nisi eget tortor luctus maximus sed non lectus.
+      A group of open source enthusiasts, community builders, technologists and researchers working 
+      towards tech for social good. We bring together expertise from research institutions, industry partners, 
+      and community organizations to create innovative AI solutions for the Global South.
     </Fragment>
   </Hero>
 
-  <!-- Stats Widget ****************** -->
+  <!-- Journey Timeline -->
+  <div class="max-w-6xl mx-auto px-4 py-16 lg:px-8">
+    <h2 class="text-3xl font-bold mb-8 text-center">Our Journey</h2>
+    <div class="space-y-8">
+      {journeyItems.map(item => (
+        <div class="flex gap-4 items-start">
+          <div class="text-primary font-bold text-lg w-24">{item.year}</div>
+          <div>
+            <h3 class="font-bold text-xl mb-2">{item.title}</h3>
+            <p class="text-muted">{item.description}</p>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
 
+  <!-- Leadership -->
+  <div class="bg-blue-50 dark:bg-slate-800 py-16">
+    <div class="max-w-6xl mx-auto px-4 lg:px-8">
+      <h2 class="text-3xl font-bold mb-8 text-center">Our Leadership</h2>
+      <div class="grid md:grid-cols-3 gap-8">
+        {leadershipTeam.map(leader => (
+          <div class="bg-white dark:bg-slate-900 rounded-lg p-6 text-center">
+            <div class="w-16 h-16 bg-primary text-white rounded-full flex items-center justify-center text-2xl font-bold mx-auto mb-4">
+              {leader.initials}
+            </div>
+            <h3 class="font-bold text-xl mb-2">{leader.name}</h3>
+            <p class="text-muted">{leader.role}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </div>
+
+  <!-- Key Achievements -->
+  <div class="max-w-6xl mx-auto px-4 py-16 lg:px-8">
+    <h2 class="text-3xl font-bold mb-8 text-center">Key Achievements</h2>
+    <div class="grid md:grid-cols-3 gap-8">
+      <div class="text-center">
+        <div class="text-4xl font-bold text-primary mb-2">G</div>
+        <h3 class="font-bold mb-2">Gonthuka</h3>
+        <p class="text-muted">Telugu ASR system with 1.5 Million voice samples and 45,000+ contributors</p>
+      </div>
+      <div class="text-center">
+        <div class="text-4xl font-bold text-primary mb-2">A</div>
+        <h3 class="font-bold mb-2">AI Chandamama Kathalu</h3>
+        <p class="text-muted">First Small Language Model for Indic language story generation</p>
+      </div>
+      <div class="text-center">
+        <div class="text-4xl font-bold text-primary mb-2">S</div>
+        <h3 class="font-bold mb-2">Swecha AI OS</h3>
+        <p class="text-muted">First AI-enabled open source operating system</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Our Impact -->
   <Stats
-    title="Statistics about us"
+    title="Our Impact"
     stats={[
-      { title: 'Offices', amount: '4' },
-      { title: 'Employees', amount: '248' },
-      { title: 'Templates', amount: '12' },
-      { title: 'Awards', amount: '24' },
-    ]}
-  />
-
-  <!-- Features3 Widget ************** -->
-
-  <Features3
-    title="Our templates"
-    subtitle="Etiam scelerisque, enim eget vestibulum luctus, nibh mauris blandit nulla, nec vestibulum risus justo ut enim. Praesent lacinia diam et ante imperdiet euismod."
-    columns={3}
-    isBeforeContent={true}
-    items={[
       {
-        title: 'Educational',
-        description:
-          'Morbi faucibus luctus quam, sit amet aliquet felis tempor id. Cras augue massa, ornare quis dignissim a, molestie vel nulla.',
-        icon: 'tabler:template',
+        title: 'Contributors',
+        amount: '45K+',
       },
       {
-        title: 'Interior Design',
-        description:
-          'Vivamus porttitor, tortor convallis aliquam pretium, turpis enim consectetur elit, vitae egestas purus erat ac nunc nulla.',
-        icon: 'tabler:template',
+        title: 'Voice Samples',
+        amount: '1.5M+',
       },
       {
-        title: 'Photography',
-        description:
-          'Duis sed lectus in nisl vehicula porttitor eget quis odio. Aliquam erat volutpat. Nulla eleifend nulla id sem fermentum.',
-        icon: 'tabler:template',
+        title: 'Trained Teachers',
+        amount: '500+',
+      },
+      {
+        title: 'Story Contributors',
+        amount: '10K+',
       },
     ]}
   />
 
-  <!-- Features3 Widget ************** -->
-
-  <Features3
-    columns={3}
-    isAfterContent={true}
-    items={[
-      {
-        title: 'E-commerce',
-        description:
-          'Rutrum non odio at vehicula. Proin ipsum justo, dignissim in vehicula sit amet, dignissim id quam. Sed ac tincidunt sapien.',
-        icon: 'tabler:template',
-      },
-      {
-        title: 'Blog',
-        description:
-          'Nullam efficitur volutpat sem sed fringilla. Suspendisse et enim eu orci volutpat laoreet ac vitae libero.',
-        icon: 'tabler:template',
-      },
-      {
-        title: 'Business',
-        description:
-          'Morbi et elit finibus, facilisis justo ut, pharetra ipsum. Donec efficitur, ipsum quis congue luctus, mauris magna.',
-        icon: 'tabler:template',
-      },
-      {
-        title: 'Branding',
-        description:
-          'Suspendisse vitae nisi eget tortor luctus maximus sed non lectus. Cras malesuada pretium placerat. Nullam venenatis dolor a ante rhoncus.',
-        icon: 'tabler:template',
-      },
-      {
-        title: 'Medical',
-        description:
-          'Vestibulum malesuada lacus id nibh posuere feugiat. Nam volutpat nulla a felis ultrices, id suscipit mauris congue. In hac habitasse platea dictumst.',
-        icon: 'tabler:template',
-      },
-      {
-        title: 'Fashion Design',
-        description:
-          'Maecenas eu tellus eget est scelerisque lacinia et a diam. Aliquam velit lorem, vehicula id fermentum et, rhoncus et purus.',
-        icon: 'tabler:template',
-      },
-    ]}
-    image={{
-      src: 'https://images.unsplash.com/photo-1504384308090-c894fdcc538d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1740&q=80',
-      alt: 'Colorful Image',
-    }}
+  <!-- Focus Areas -->
+  <Features
+    title="Our Focus Areas"
+    items={focusAreas}
   />
 
-  <!-- Steps2 Widget ****************** -->
-
-  <Steps2
-    title="Our values"
-    subtitle="Maecenas eu tellus eget est scelerisque lacinia et a diam. Aliquam velit lorem, vehicula id fermentum et, rhoncus et purus. Nulla facilisi. Vestibulum malesuada lacus."
-    items={[
-      {
-        title: 'Customer-centric approach',
-        description:
-          'Donec id nibh neque. Quisque et fermentum tortor. Fusce vitae dolor a mauris dignissim commodo. Ut eleifend luctus condimentum.',
-      },
-      {
-        title: 'Constant Improvement',
-        description:
-          'Phasellus laoreet fermentum venenatis. Vivamus dapibus pulvinar arcu eget mattis. Fusce eget mauris leo.',
-      },
-      {
-        title: 'Ethical Practices',
-        description:
-          'Vestibulum imperdiet libero et lectus molestie, et maximus augue porta. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.',
-      },
-    ]}
-  />
-
-  <!-- Steps2 Widget ****************** -->
-
-  <Steps2
-    title="Achievements"
-    subtitle="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi sagittis, quam nec venenatis lobortis, mi risus tempus nulla, sed porttitor est nibh at nulla."
-    isReversed={true}
-    callToAction={{
-      text: 'See more',
-      href: '/',
-    }}
-    items={[
-      {
-        title: 'Global reach',
-        description: 'Nam malesuada urna in enim imperdiet tincidunt. Phasellus non tincidunt nisi, at elementum mi.',
-        icon: 'tabler:globe',
-      },
-      {
-        title: 'Positive customer feedback and reviews',
-        description:
-          'Cras semper nulla leo, eget laoreet erat cursus sed. Praesent faucibus massa in purus iaculis dictum.',
-        icon: 'tabler:message-star',
-      },
-      {
-        title: 'Awards and recognition as industry experts',
-        description:
-          'Phasellus lacinia cursus velit, eu malesuada magna pretium eu. Etiam aliquet tellus purus, blandit lobortis ex rhoncus vitae.',
-        icon: 'tabler:award',
-      },
-    ]}
-  />
-
-  <!-- Features2 Widget ************** -->
-
-  <Features2
-    title="Our locations"
-    tagline="Find us"
-    columns={4}
-    items={[
-      {
-        title: 'EE.UU',
-        description: '1234 Lorem Ipsum St, 12345, Miami',
-      },
-      {
-        title: 'Spain',
-        description: '5678 Lorem Ipsum St, 56789, Madrid',
-      },
-      {
-        title: 'Australia',
-        description: '9012 Lorem Ipsum St, 90123, Sydney',
-      },
-      {
-        title: 'Brazil',
-        description: '3456 Lorem Ipsum St, 34567, São Paulo',
-      },
-    ]}
-  />
-
-  <!-- Features2 Widget ************** -->
-
-  <Features2
-    title="Technical Support"
-    tagline="Contact us"
-    columns={2}
-    items={[
-      {
-        title: 'Chat with us',
-        description:
-          'Integer luctus laoreet libero, auctor varius purus rutrum sit amet. Ut nec molestie nisi, quis eleifend mi.',
-        icon: 'tabler:messages',
-      },
-      {
-        title: 'Call us',
-        description:
-          'Mauris faucibus finibus orci, in posuere elit viverra non. In hac habitasse platea dictumst. Cras lobortis metus a hendrerit congue.',
-        icon: 'tabler:headset',
-      },
-    ]}
-  />
+  <!-- Footer Note -->
+  <div class="text-center py-8 text-sm text-muted">
+    <p>VISWAM.ai - Pronounced 'viswamayee'</p>
+    <p>A Joint Initiative of Swecha and IIIT Hyderabad</p>
+  </div>
 </Layout>

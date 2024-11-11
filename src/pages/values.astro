@@ -1,0 +1,151 @@
+---
+// src/pages/values.astro
+import Layout from '~/layouts/PageLayout.astro';
+import Features from '~/components/widgets/Features.astro';
+import Hero from '~/components/widgets/Hero.astro';
+
+import Content from '~/components/widgets/Content.astro';
+
+const metadata = {
+  title: 'Core Values',
+  description: 'The principles that guide our work in AI development',
+};
+const strategicGoals = [
+  {
+    year: '2024',
+    title: 'Establish',
+    description: 'Centres of Excellence, Skilling, Training, Incubators, Accelerators, Conferences'
+  },
+  {
+    year: '2026',
+    title: 'Grow',
+    description: 'Talent Pool, Products, Startups, Research Institutes, AI Services across the value chain'
+  },
+  {
+    year: '2028',
+    title: 'Consolidate',
+    description: 'Foundational Research, AI Services at the higher end of the value chain'
+  },
+  {
+    year: '2030',
+    title: 'Lead',
+    description: 'Global South AI Hub, Foundational Models, Integrate AI across domains, Thought Leadership'
+  }
+];
+
+const strategicPillars = [
+  {
+    number: '1',
+    title: 'Democratize Access to AI',
+    description: 'Making AI accessible through native language interfaces and voice interactions, using commodity hardware for widespread adoption.'
+  },
+  {
+    number: '2',
+    title: 'Democratize Building AI',
+    description: 'Enabling communities to build datasets and models representative of the Global South, fostering inclusive development.'
+  },
+  {
+    number: '3',
+    title: 'Indigenous Innovation',
+    description: 'Developing solutions based on native knowledge and cultural context of the Global South.'
+  }
+];
+---
+
+<Layout metadata={metadata}>
+  <Hero>
+    <Fragment slot="title">
+      Our Vision & Mission
+    </Fragment>
+    <Fragment slot="subtitle">
+      Shaping the Future of AI in the Global South
+    </Fragment>
+  </Hero>
+
+  <!-- Vision Section -->
+  <section class="py-16 px-4 max-w-7xl mx-auto">
+    <h2 class="text-3xl font-bold mb-6">Our Vision</h2>
+    <div class="bg-white p-6 rounded-lg shadow-sm border-l-4 border-blue-500">
+      <p class="text-lg text-gray-700 leading-relaxed">
+        "To be the leading AI technology hub for the Global South, solving problems of the Global south, driving inclusive innovation, fostering equitable access to AI, and empowering communities to harness the transformative potential of artificial intelligence for sustainable development."
+      </p>
+    </div>
+  </section>
+
+  <!-- Mission Section -->
+  <section class="py-8 px-4 max-w-7xl mx-auto">
+    <h2 class="text-3xl font-bold mb-6">Our Mission</h2>
+    <div class="bg-white p-6 rounded-lg shadow-sm border-l-4 border-blue-500">
+      <p class="text-lg text-gray-700 leading-relaxed">
+        "To ensure AI serves humanity with respect for individual rights, ecological balance, and equitable access. We will build ethical AI systems by developing models with ethically collected data, ensuring transparency, prioritizing environmental responsibility, attributing contributions, and promoting cultural and architectural diversity."
+      </p>
+    </div>
+  </section>
+  <!-- Strategic Goals -->
+  <section class="py-16 px-4 ">
+    <div class="max-w-7xl mx-auto">
+      <h2 class="text-3xl font-bold mb-12">Strategic Goals</h2>
+      <div class="space-y-4">
+        {strategicGoals.map(goal => (
+          <div class="bg-navy-800 p-4 rounded-lg flex gap-4">
+            <div class="text-blue-400 font-bold w-16">{goal.year}</div>
+            <div>
+              <h3 class="font-bold mb-2">{goal.title}</h3>
+              <p class="text-gray-300">{goal.description}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Strategic Pillars -->
+  <section class="py-16 px-4 max-w-7xl mx-auto">
+    <h2 class="text-3xl font-bold mb-12">Strategic Pillars</h2>
+    <div class="space-y-8">
+      {strategicPillars.map(pillar => (
+        <div class="flex gap-6 items-start">
+          <div class="w-12 h-12 bg-blue-500 rounded-full flex items-center justify-center text-white text-xl flex-shrink-0">
+            {pillar.number}
+          </div>
+          <div>
+            <h3 class="text-xl font-bold mb-2">{pillar.title}</h3>
+            <p class="text-gray-600">{pillar.description}</p>
+          </div>
+        </div>
+      ))}
+    </div>
+  </section>
+  <Features
+    id="values"
+    tagline="Our Principles"
+    title="Core Values"
+    items={[
+      {
+        title: 'Ethically Collected Data',
+        description: 'Ensuring privacy and informed consent in data collection',
+        icon: 'tabler:shield',
+      },
+      {
+        title: 'Transparency',
+        description: 'Open datasets for better understanding and mitigation of biases',
+        icon: 'tabler:eye',
+      },
+      {
+        title: 'Environmental Responsibility',
+        description: 'Sustainable AI development for a healthy planet',
+        icon: 'tabler:leaf',
+      },
+      {
+        title: 'Attribution',
+        description: 'Proper recognition of all contributors',
+        icon: 'tabler:award',
+      },
+      {
+        title: 'Diversity',
+        description: 'Promoting diverse AI architectures and approaches',
+        icon: 'tabler:users',
+      },
+    ]}
+  />
+</Layout>

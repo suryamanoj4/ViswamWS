@@ -1,0 +1,56 @@
+---
+// src/components/widgets/Tabs.astro
+const { items = [], defaultTabId = 'tab1', id = 'default-tabs' } = Astro.props;
+---
+
+<div class="max-w-7xl mx-auto px-4 lg:px-8">
+  <div class="border-b border-gray-200">
+    <nav class="-mb-px flex space-x-8" aria-label="Tabs">
+      {
+        items.map((item, index) => (
+          <button
+            class="tab-button whitespace-nowrap py-4 px-1 border-b-2 font-medium text-sm border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300"
+            data-tab={`tab${index + 1}`}
+            aria-selected={index === 0 ? 'true' : 'false'}
+          >
+            {item.icon && (
+              <span class="mr-2">
+                <i class={item.icon} />
+              </span>
+            )}
+            {item.title}
+          </button>
+        ))
+      }
+    </nav>
+  </div>
+</div>
+
+<script define:vars={{ defaultTabId, id }}>
+  // Get all tab buttons
+  const tabButtons = document.querySelectorAll('.tab-button');
+  
+  // Add click handlers
+  tabButtons.forEach(button => {
+    button.addEventListener('click', () => {
+      // Remove active state from all buttons
+      tabButtons.forEach(btn => {
+        btn.classList.remove('border-primary-500', 'text-primary-600');
+        btn.classList.add('border-transparent', 'text-gray-500');
+        btn.setAttribute('aria-selected', 'false');
+      });
+      
+      // Add active state to clicked button
+      button.classList.remove('border-transparent', 'text-gray-500');
+      button.classList.add('border-primary-500', 'text-primary-600');
+      button.setAttribute('aria-selected', 'true');
+    });
+  });
+  
+  // Set default active tab
+  const defaultTab = document.querySelector(`[data-tab="${defaultTabId}"]`);
+  if (defaultTab) {
+    defaultTab.classList.remove('border-transparent', 'text-gray-500');
+    defaultTab.classList.add('border-primary-500', 'text-primary-600');
+  }
+</script>

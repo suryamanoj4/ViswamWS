@@ -1,0 +1,109 @@
+---
+// src/pages/roadmap.astro
+import Layout from '~/layouts/PageLayout.astro';
+import Stats from '~/components/widgets/Stats.astro';
+import Content from '~/components/widgets/Content.astro';
+import Features2 from '~/components/widgets/Features2.astro';
+
+const metadata = {
+  title: 'Roadmap',
+  description: 'Our vision and milestones from 2024 to 2030',
+};
+
+const phases = [
+  {
+    title: '2024: Establish',
+    items: [
+      'Centres of Excellence',
+      'Skilling & Training Programs',
+      '100k AI Internships',
+      'Telugu LLM Pilot'
+    ]
+  },
+  {
+    title: '2026: Grow',
+    items: [
+      'Expand Talent Pool',
+      'Launch AI Products',
+      'Support AI Startups',
+      'Strengthen Research Institutes'
+    ]
+  },
+  {
+    title: '2028: Consolidate',
+    items: [
+      'Foundational Research',
+      'High-end AI Services',
+      'Industry Partnerships',
+      'Research Publications'
+    ]
+  },
+  {
+    title: '2030: Lead',
+    items: [
+      'Global South AI Hub',
+      'Foundational Models',
+      'Cross-domain Integration',
+      'Thought Leadership'
+    ]
+  }
+];
+---
+
+<Layout metadata={metadata}>
+  {/* Hero Section */}
+  <Content
+    isAfterContent={true}
+    title="Our Vision for the Future"
+    subtitle="A comprehensive roadmap to establish VISWAM.ai as the leading AI technology hub for the Global South"
+  >
+    <Fragment slot="content">
+      Our journey from 2024 to 2030 encompasses establishing foundations, growing capabilities, 
+      consolidating strengths, and ultimately leading AI innovation for the Global South.
+    </Fragment>
+  </Content>
+
+  {/* Roadmap Phases */}
+  {phases.map((phase) => (
+    <Features2
+      title={phase.title}
+      items={phase.items.map(item => ({
+        title: item,
+        icon: 'tabler:check'
+      }))}
+      classes={{
+        container: 'max-w-5xl',
+      }}
+    />
+  ))}
+
+  {/* Key Metrics */}
+  <Stats
+    title="Target Milestones"
+    stats={[
+      { title: 'AI Startups', amount: '1000' },
+      { title: 'AI Workforce', amount: '250000' },
+      { title: 'AI Developers', amount: '75000' },
+      { title: 'AI Researchers', amount: '10000' },
+      { title: 'AI Models', amount: '100' },
+    ]}
+  />
+
+  {/* Call to Action */}
+  <Content
+    isAfterContent
+    title="Join Our Journey"
+    subtitle="Be part of the AI revolution in the Global South"
+    callToAction={{
+      text: 'Get Involved',
+      href: '/contact',
+      icon: 'tabler:arrow-right',
+    }}
+  >
+    <Fragment slot="content">
+      We're looking for passionate individuals and organizations to join us in our mission to democratize AI 
+      for the Global South. Whether you're a researcher, developer, student, or industry partner, 
+      there's a place for you in our vision.
+    </Fragment>
+  </Content>
+</Layout>

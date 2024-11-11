@@ -1,0 +1,142 @@
+---
+import Layout from '~/layouts/PageLayout.astro';
+import Hero from '~/components/widgets/Hero.astro';
+import BarChart from '~/components/BarChart';
+const metadata = {
+  title: 'Our Projects | VISWAM.ai',
+  description: 'Current Projects and Milestones at VISWAM.ai',
+};
+
+const projects = [
+  {
+    title: 'Gonthuka',
+    description: 'Telugu Automatic Speech Recognition System',
+    stats: [
+      'Voice Samples: 1.5M',
+      'Contributors: 45,000+',
+    ],
+    features: [
+      'Comprehensive Telugu dialect coverage',
+      'Community-driven data collection',
+      'Open-source implementation'
+    ]
+  },
+  {
+    title: 'AI Chandamama Kathalu',
+    description: 'First Small Language Model for Indic Language Story Generation',
+    stats: [
+      'Contributors: 10,000+',
+      'Stories Generated: 5,000+',
+    ],
+    features: [
+      'Cultural context preservation',
+      'Multi-dialect support',
+      'Community validation system'
+    ]
+  },
+  {
+    title: 'Swecha AI Operating System',
+    description: 'First AI-enabled Open Source Operating System',
+    stats: [
+      'Version: Alpha',
+      'Development Phase: Active',
+    ],
+    features: [
+      'Native language interface',
+      'Integrated AI capabilities',
+      'Community-driven development'
+    ]
+  }
+];
+
+const milestones = [
+  {
+    quarter: 'Q1 2024',
+    description: 'Launch of Telugu LLM Pilot Program'
+  },
+  {
+    quarter: 'Q2 2024',
+    description: '100K AI Internships Program Initiation'
+  },
+  {
+    quarter: 'Q3 2024',
+    description: 'Launch of AI-enabled eSwecha Platform'
+  },
+  {
+    quarter: 'Q4 2024',
+    description: 'Expansion of Gonthuka to other Indic languages'
+  }
+];
+---
+
+<Layout metadata={metadata}>
+  <!-- Hero -->
+  <Hero
+    tagline="Our Projects"
+    title="Current Projects and Milestones"
+  />
+
+  <!-- Projects -->
+  <section class="py-16 px-4 max-w-7xl mx-auto">
+    <div class="grid md:grid-cols-3 gap-8">
+      {projects.map(project => (
+        <div class="bg-blue-900 text-white rounded-lg p-6">
+          <h3 class="text-2xl font-bold mb-4">{project.title}</h3>
+          <p class="mb-4">{project.description}</p>
+          
+          {/* Stats */}
+          <div class="mb-6">
+            {project.stats.map(stat => (
+              <div class="mb-2">{stat}</div>
+            ))}
+            <div class="mt-4 mb-2">Progress</div>
+            <div class="w-full bg-white/20 rounded-full h-2">
+              <div class="bg-blue-400 h-2 rounded-full w-2/3"></div>
+            </div>
+          </div>
+
+          {/* Features */}
+          <ul class="space-y-2">
+            {project.features.map(feature => (
+              <li class="flex items-start gap-2">
+                <span class="text-blue-400">→</span>
+                <span>{feature}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <!-- Milestones -->
+  <section class="py-16 px-4 max-w-7xl mx-auto">
+    <h2 class="text-3xl font-bold mb-8">Project Milestones</h2>
+    <div class="space-y-6">
+      {milestones.map(milestone => (
+        <div class="flex gap-8">
+          <div class="font-bold text-blue-600 w-24">
+            {milestone.quarter}
+          </div>
+          <div>
+            {milestone.description}
+          </div>
+        </div>
+      ))}
+    </div>
+  </section>
+    <!-- Impact Metrics -->
+  <div class="max-w-7xl mx-auto px-4 py-16 lg:px-8">
+    <h2 class="text-3xl font-bold mb-8">Impact Metrics</h2>
+    <div class="h-[400px] mb-8">
+      <BarChart client:load />
+    </div>
+  </div>
+</Layout>
+
+<style>
+  /* Custom styles for dark blue background */
+  .bg-blue-900 {
+    background-color: #1e3a8a;
+  }
+</style>

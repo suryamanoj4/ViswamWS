@@ -1,0 +1,227 @@
+---
+import Layout from '~/layouts/PageLayout.astro';
+import Hero from '~/components/widgets/Hero.astro';
+import Features from '~/components/widgets/Features.astro';
+import Stats from '~/components/widgets/Stats.astro';
+import { Icon } from 'astro-icon/components';
+import PieChart from '~/components/PieChart';
+const metadata = {
+  title: 'Our Collaborations | VISWAM.ai',
+  description: 'Building a Global Network for AI Innovation',
+};
+
+// Collaboration Categories
+const categories = [
+  {
+    title: 'Academic',
+    description: 'Research institutions and universities working on cutting edge AI technologies',
+    icon: 'A',
+  },
+  {
+    title: 'Industry',
+    description: 'Technology companies and enterprises implementing AI solutions',
+    icon: 'I',
+  },
+  {
+    title: 'Policy',
+    description: 'Organizations shaping AI policy and governance frameworks',
+    icon: 'P',
+  },
+  {
+    title: 'Creative',
+    description: 'Media and content partners exploring AI applications',
+    icon: 'C',
+  },
+];
+
+// Stats
+const partnershipStats = [
+  { number: '15+', label: 'Academic Partners' },
+  { number: '10+', label: 'Industry Partners' },
+  { number: '5+', label: 'Policy Partners' },
+  { number: '25+', label: 'Joint Projects' },
+];
+
+// Upcoming Collaborations
+const upcomingCollaborations = [
+  {
+    title: 'New Academic Partnerships',
+    description: 'Expanding research collaborations with universities in the Global South',
+    date: 'Q1 2024',
+  },
+  {
+    title: 'Industry Alliance Program',
+    description: 'Launch of structured industry partnership program',
+    date: 'Q2 2024',
+  },
+  {
+    title: 'Policy Network Expansion',
+    description: 'New partnerships with policy organizations across Asia and Africa',
+    date: 'Q3 2024',
+  },
+];
+---
+
+<Layout metadata={metadata}>
+  <!-- Hero -->
+  <Hero>
+    <Fragment slot="title">
+      Our Collaborations
+    </Fragment>
+    <Fragment slot="subtitle">
+      Building a Global Network for AI Innovation
+    </Fragment>
+  </Hero>
+
+  <!-- Categories -->
+  <div class="max-w-7xl mx-auto px-4 py-12 lg:px-8">
+    <div class="grid md:grid-cols-4 gap-8">
+      {categories.map(category => (
+        <div class="text-center">
+          <div class="w-16 h-16 bg-blue-500 rounded-full flex items-center justify-center text-white text-2xl mx-auto mb-4">
+            {category.icon}
+          </div>
+          <h3 class="font-bold mb-2">{category.title}</h3>
+          <p class="text-gray-600 text-sm">{category.description}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+
+  <!-- Academic & Research Partners -->
+  <div class="max-w-7xl mx-auto px-4 py-8 lg:px-8">
+    <h2 class="text-2xl font-bold mb-8">Academic & Research Partners</h2>
+    <div class="grid md:grid-cols-2 gap-8">
+      <div class="bg-blue-900 text-white p-6 rounded-lg">
+        <h3 class="text-xl font-bold mb-4">Centre for Responsible AI (CeRAI)</h3>
+        <p class="mb-4">Collaboration on ethical AI development and implementation</p>
+        <ul class="space-y-2">
+          <li>Ethical AI Framework Development</li>
+          <li>AI Impact Assessment Studies</li>
+          <li>Joint Research Publications</li>
+        </ul>
+      </div>
+      <div class="bg-blue-900 text-white p-6 rounded-lg">
+        <h3 class="text-xl font-bold mb-4">Centre for Human-Centric AI (CHAI)</h3>
+        <p class="mb-4">Focus on human-centered AI applications and research</p>
+        <ul class="space-y-2">
+          <li>User Experience Research</li>
+          <li>AI Accessibility Studies</li>
+          <li>Cultural Integration Projects</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- Partnership Stats -->
+  <Stats
+    stats={partnershipStats}
+    classes={{ container: 'max-w-7xl mx-auto' }}
+  />
+
+  <!-- Industry Partners -->
+  <div class="max-w-7xl mx-auto px-4 py-8 lg:px-8">
+    <h2 class="text-2xl font-bold mb-8">Industry Partners</h2>
+    <div class="grid md:grid-cols-3 gap-8">
+      <div class="bg-blue-900 text-white p-6 rounded-lg">
+        <h3 class="text-xl font-bold mb-4">Meta</h3>
+        <ul class="space-y-2">
+          <li>Collaboration on AI infrastructure and development</li>
+          <li>AI Model Development</li>
+          <li>Infrastructure Support</li>
+          <li>Technical Expertise Sharing</li>
+        </ul>
+      </div>
+      <div class="bg-blue-900 text-white p-6 rounded-lg">
+        <h3 class="text-xl font-bold mb-4">Ozonetel</h3>
+        <ul class="space-y-2">
+          <li>Voice AI and communication technology partnership</li>
+          <li>Voice Recognition Systems</li>
+          <li>Language Processing</li>
+          <li>Communication APIs</li>
+        </ul>
+      </div>
+      <div class="bg-blue-900 text-white p-6 rounded-lg">
+        <h3 class="text-xl font-bold mb-4">E2E Networks</h3>
+        <ul class="space-y-2">
+          <li>Cloud infrastructure and computing resources</li>
+          <li>Cloud Computing Resources</li>
+          <li>Infrastructure Management</li>
+          <li>Technical Support</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- Policy Partners -->
+  <div class="max-w-7xl mx-auto px-4 py-8 lg:px-8">
+    <h2 class="text-2xl font-bold mb-8">Policy Partners</h2>
+    <div class="grid md:grid-cols-2 gap-8">
+      <div class="bg-blue-900 text-white p-6 rounded-lg">
+        <h3 class="text-xl font-bold mb-4">Creative Commons</h3>
+        <ul class="space-y-2">
+          <li>Open licensing and content sharing frameworks</li>
+          <li>Licensing Framework Development</li>
+          <li>Open Content Guidelines</li>
+          <li>Community Engagement</li>
+        </ul>
+      </div>
+      <div class="bg-blue-900 text-white p-6 rounded-lg">
+        <h3 class="text-xl font-bold mb-4">Software Freedom Law Centre (SFLC)</h3>
+        <ul class="space-y-2">
+          <li>Legal framework and policy guidance</li>
+          <li>Legal Consultation</li>
+          <li>Policy Framework</li>
+          <li>Rights Protection</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- Upcoming Collaborations -->
+  <div class="max-w-7xl mx-auto px-4 py-8 lg:px-8">
+    <h2 class="text-2xl font-bold mb-8">Upcoming Collaborations</h2>
+    <div class="space-y-6">
+      {upcomingCollaborations.map(collab => (
+        <div class="flex justify-between items-center border-b pb-4">
+          <div>
+            <h3 class="font-bold mb-2">{collab.title}</h3>
+            <p class="text-gray-600">{collab.description}</p>
+          </div>
+          <div class="bg-blue-500 text-white px-3 py-1 rounded">
+            {collab.date}
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+
+  <!-- Partner Types -->
+  <div class="max-w-7xl mx-auto px-4 py-8 lg:px-8">
+    <div class="grid md:grid-cols-3 gap-8 text-center">
+      <div>
+        <div class="text-4xl font-bold text-blue-500 mb-4">1</div>
+        <h3 class="font-bold mb-2">Research Partner</h3>
+        <p class="text-gray-600">Joint research projects and academic collaboration</p>
+      </div>
+      <div>
+        <div class="text-4xl font-bold text-blue-500 mb-4">2</div>
+        <h3 class="font-bold mb-2">Technology Partner</h3>
+        <p class="text-gray-600">Infrastructure and technical resource sharing</p>
+      </div>
+      <div>
+        <div class="text-4xl font-bold text-blue-500 mb-4">3</div>
+        <h3 class="font-bold mb-2">Strategic Partner</h3>
+        <p class="text-gray-600">Long term strategic alignment and joint initiatives</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Impact Pie Chart -->
+  <div class="max-w-3xl mx-auto px-4 py-8">
+    <h2 class="text-2xl font-bold mb-8 text-center">Impact & Reach</h2>
+    <div class="aspect-square">
+      <PieChart client:load />
+    </div>
+  </div>
+</Layout>

@@ -1,0 +1,178 @@
+---
+import Layout from '~/layouts/PageLayout.astro';
+import Hero from '~/components/widgets/Hero.astro';
+import Features from '~/components/widgets/Features.astro';
+import OrganizationChart from '~/components/OrganizationChart';
+
+const metadata = {
+  title: 'Organizational Structure | VISWAM.ai',
+  description: 'Governance and Leadership Framework',
+};
+
+const governingCouncil = [
+  {
+    name: 'Jayesh Ranjan',
+    role: 'Council Member',
+  },
+  {
+    name: 'Prof PJ Narayanan',
+    role: 'Council Member',
+  },
+  {
+    name: 'Prof B Ravindran',
+    role: 'Council Member',
+  },
+];
+
+const executiveCouncil = [
+  {
+    name: 'Prof Jayanthi',
+    role: 'Executive Member',
+  },
+  {
+    name: 'Renata Avila',
+    role: 'Executive Member',
+  },
+  {
+    name: 'Y Kiran Chandra',
+    role: 'Centre Director',
+  },
+  {
+    name: 'Ramesh Loganathan',
+    role: 'Executive Member',
+  },
+];
+
+const workgroups = [
+  {
+    title: 'Technology Workgroup',
+    items: [
+      'Technical architecture and implementation',
+      'Infrastructure planning and management',
+      'Technology stack decisions',
+      'Technical documentation',
+    ],
+  },
+  {
+    title: 'Policy Workgroup',
+    items: [
+      'Policy framework development',
+      'Ethical guidelines',
+      'Compliance oversight',
+      'Stakeholder engagement',
+    ],
+  },
+  {
+    title: 'Research Workgroup',
+    items: [
+      'Research direction and priorities',
+      'Academic collaborations',
+      'Publication strategy',
+      'Research grants and funding',
+    ],
+  },
+];
+
+const meetings = [
+  { group: 'Governing Council', frequency: 'Half-yearly' },
+  { group: 'Executive Council', frequency: 'Quarterly' },
+  { group: 'Working Groups', frequency: 'Monthly' },
+];
+---
+
+<Layout metadata={metadata}>
+  <!-- Hero -->
+  <Hero>
+    <Fragment slot="title">
+      Organizational Structure
+    </Fragment>
+    <Fragment slot="subtitle">
+      Governance and Leadership Framework
+    </Fragment>
+  </Hero>
+
+  <!-- Organizational Hierarchy -->
+  <section class="py-16 px-4">
+    <h2 class="text-3xl font-bold text-center mb-12">Organizational Hierarchy</h2>
+    <div class="max-w-4xl mx-auto">
+      <OrganizationChart client:load />
+    </div>
+  </section>
+
+  <!-- Governing Council -->
+  <section class="py-8 px-4 max-w-7xl mx-auto">
+    <div class="flex items-center gap-2 mb-4">
+      <div class="w-8 h-8 bg-blue-500 rounded-full flex items-center justify-center text-white">
+        GC
+      </div>
+      <h2 class="text-2xl font-bold">Governing Council</h2>
+    </div>
+    <p class="text-gray-600 mb-6">Direction & Strategy; Half-yearly meetings</p>
+    <div class="grid md:grid-cols-3 gap-6">
+      {governingCouncil.map(member => (
+        <div class="bg-gray-50 p-4 rounded-lg">
+          <h3 class="font-bold mb-2">{member.name}</h3>
+          <p class="text-gray-600">{member.role}</p>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <!-- Executive Council -->
+  <section class="py-8 px-4 max-w-7xl mx-auto">
+    <div class="flex items-center gap-2 mb-4">
+      <div class="w-8 h-8 bg-blue-500 rounded-full flex items-center justify-center text-white">
+        EC
+      </div>
+      <h2 class="text-2xl font-bold">Executive Council</h2>
+    </div>
+    <p class="text-gray-600 mb-6">Operational; Quarterly meetings</p>
+    <div class="grid md:grid-cols-4 gap-6">
+      {executiveCouncil.map(member => (
+        <div class="bg-gray-50 p-4 rounded-lg">
+          <h3 class="font-bold mb-2">{member.name}</h3>
+          <p class="text-gray-600">{member.role}</p>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <!-- Working Groups -->
+  <section class="py-8 px-4 max-w-7xl mx-auto">
+    <h2 class="text-2xl font-bold mb-8">Working Groups</h2>
+    <div class="grid md:grid-cols-3 gap-8">
+      {workgroups.map(group => (
+        <div class="bg-navy-900 text-white p-6 rounded-lg">
+          <h3 class="text-xl font-bold mb-4">{group.title}</h3>
+          <ul class="space-y-2">
+            {group.items.map(item => (
+              <li class="flex items-start gap-2">
+                <span class="text-blue-400">•</span>
+                <span>{item}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <!-- Meeting Schedule -->
+  <section class="py-8 px-4 max-w-7xl mx-auto">
+    <h2 class="text-2xl font-bold mb-8">Meeting Schedule</h2>
+    <div class="grid md:grid-cols-3 gap-8">
+      {meetings.map(meeting => (
+        <div class="bg-gray-50 p-6 rounded-lg text-center">
+          <h3 class="font-bold mb-2">{meeting.group}</h3>
+          <p class="text-blue-600">{meeting.frequency}</p>
+        </div>
+      ))}
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .bg-navy-900 {
+    background-color: #1e3a8a;
+  }
+</style>
