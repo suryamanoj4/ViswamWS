@@ -1,0 +1,397 @@
+---
+import { Icon } from 'astro-icon/components';
+import Layout from '~/layouts/PageLayout.astro';
+import Hero from '~/components/widgets/Hero.astro';
+import ProjectCard from '~/components/widgets/ProjectCard.astro';
+
+const metadata = {
+  title: 'Community Projects',
+};
+
+const projects = {
+  education: {
+    title: 'Education & Upskilling',
+    subtitle: 'Empowering the community through education and training',
+    projects: [
+      {
+        name: "Upskilling 1 Lakh Engineering Students",
+        timeline: "Q1 2024 - Q4 2025",
+        status: "Active",
+        description: "Massive training initiative for engineering students in AI/ML",
+        icon: 'tabler:school',
+        outcomes: [
+          "Comprehensive curriculum",
+          "Industry partnerships",
+          "Placement support",
+          "Project portfolios",
+          "Certification program"
+        ],
+        plans: [
+          "Scale to more institutions",
+          "Add advanced tracks",
+          "Create job platform",
+          "Build mentor network",
+          "Develop assessment tools"
+        ],
+        metrics: {
+          studentsEnrolled: "100,000",
+          coursesOffered: 25,
+          placementRate: "85%",
+          satisfaction: "4.8/5"
+        }
+      },
+      {
+        name: "Training Tools Development",
+        timeline: "Q2 2024 - Q4 2024",
+        status: "Planning",
+        description: "Creating bilingual training resources and platforms",
+        icon: 'tabler:tools',
+        outcomes: [
+          "Bilingual content",
+          "Interactive platform",
+          "Progress tracking",
+          "Assessment system",
+          "Mobile app"
+        ],
+        plans: [
+          "Add more languages",
+          "Enhance interactivity",
+          "Create mobile app",
+          "Build community features",
+          "Implement gamification"
+        ],
+        metrics: {
+          languages: 5,
+          resources: "1000+",
+          activeUsers: "50K",
+          completion: "78%"
+        }
+      },
+      {
+        name: "Intern Repository",
+        timeline: "Q2 2024 - Q3 2024",
+        status: "Active",
+        description: "Structured internship program with ranking system",
+        icon: 'tabler:users',
+        outcomes: [
+          "Ranking algorithm",
+          "Project database",
+          "Performance metrics",
+          "Feedback system",
+          "Placement tracking"
+        ],
+        plans: [
+          "Scale partnerships",
+          "Improve matching",
+          "Add mentorship",
+          "Create alumni network",
+          "Build recommendation system"
+        ],
+        metrics: {
+          interns: 5000,
+          projects: 500,
+          partnerCompanies: 100,
+          successRate: "92%"
+        }
+      }
+    ]
+  },
+  data: {
+    title: 'Data Collection & Management',
+    subtitle: 'Building infrastructure for community-driven data collection',
+    projects: [
+      {
+        name: "Dataset Licenses",
+        timeline: "Q1 2024 - Q2 2024",
+        status: "Active",
+        description: "Developing appropriate licensing frameworks for datasets",
+        icon: 'tabler:license',
+        outcomes: [
+          "License templates",
+          "Usage guidelines",
+          "Legal framework",
+          "Community feedback",
+          "Documentation"
+        ],
+        plans: [
+          "Create license wizard",
+          "Add more templates",
+          "Build validation tools",
+          "Improve accessibility",
+          "Develop training materials"
+        ],
+        metrics: {
+          licenses: 10,
+          adoption: "85%",
+          satisfaction: "4.7/5",
+          compliance: "98%"
+        }
+      },
+      {
+        name: "Crowd Sourcing Templates",
+        timeline: "Q2 2024 - Q3 2024",
+        status: "Planning",
+        description: "Standardized templates for global south data collection",
+        icon: 'tabler:template',
+        outcomes: [
+          "Task templates",
+          "Quality metrics",
+          "Reward system",
+          "Mobile interface",
+          "Analytics dashboard"
+        ],
+        plans: [
+          "Expand template library",
+          "Add automation",
+          "Improve validation",
+          "Create training modules",
+          "Build community tools"
+        ],
+        metrics: {
+          templates: 50,
+          contributors: "10K",
+          dataQuality: "4.8/5",
+          efficiency: "+65%"
+        }
+      },
+      {
+        name: "Data Collection Tools",
+        timeline: "Q2 2024 - Q4 2024",
+        status: "Active",
+        description: "Mobile-first data collection applications and platforms",
+        icon: 'tabler:device-mobile',
+        outcomes: [
+          "Mobile apps",
+          "Validation tools",
+          "Analytics platform",
+          "Quality checks",
+          "Reward system"
+        ],
+        plans: [
+          "Add offline support",
+          "Improve UI/UX",
+          "Scale infrastructure",
+          "Enhance security",
+          "Build API"
+        ],
+        metrics: {
+          activeUsers: "25K",
+          dataCollected: "1TB",
+          accuracy: "96%",
+          uptime: "99.9%"
+        }
+      }
+    ]
+  },
+  infrastructure: {
+    title: 'Infrastructure & Research',
+    subtitle: 'Developing sustainable computing infrastructure',
+    projects: [
+      {
+        name: "Green Compute Research",
+        timeline: "Q3 2024 - Q2 2025",
+        status: "Research",
+        description: "Investigating sustainable computing practices",
+        icon: 'tabler:leaf',
+        outcomes: [
+          "Energy metrics",
+          "Carbon tracking",
+          "Optimization tools",
+          "Best practices",
+          "Impact assessment"
+        ],
+        plans: [
+          "Expand monitoring",
+          "Improve efficiency",
+          "Create guidelines",
+          "Build tools",
+          "Share findings"
+        ],
+        metrics: {
+          energySaved: "45%",
+          carbonReduction: "50%",
+          adoption: "75%",
+          efficiency: "4.7/5"
+        }
+      },
+      {
+        name: "Cluster Compute",
+        timeline: "Q2 2024 - Q1 2025",
+        status: "Planning",
+        description: "Building distributed inference infrastructure",
+        icon: 'tabler:server',
+        outcomes: [
+          "Scalable architecture",
+          "Load balancing",
+          "Monitoring system",
+          "Auto-scaling",
+          "Cost optimization"
+        ],
+        plans: [
+          "Increase capacity",
+          "Improve reliability",
+          "Add redundancy",
+          "Enhance monitoring",
+          "Create dashboard"
+        ],
+        metrics: {
+          capacity: "100 PFLOPS",
+          utilization: "92%",
+          uptime: "99.99%",
+          efficiency: "88%"
+        }
+      }
+    ]
+  },
+  impact: {
+    title: 'Community Impact',
+    subtitle: 'Measuring our impact on the AI ecosystem',
+    metrics: [
+      {
+        category: "Education",
+        stats: [
+          {
+            label: "Students Trained",
+            value: "100,000+",
+            growth: "+150%"
+          },
+          {
+            label: "Course Completion",
+            value: "85%",
+            growth: "+15%"
+          },
+          {
+            label: "Job Placement",
+            value: "92%",
+            growth: "+25%"
+          }
+        ]
+      },
+      {
+        category: "Data Collection",
+        stats: [
+          {
+            label: "Active Contributors",
+            value: "25,000+",
+            growth: "+200%"
+          },
+          {
+            label: "Data Collected",
+            value: "5TB+",
+            growth: "+180%"
+          },
+          {
+            label: "Quality Score",
+            value: "4.8/5",
+            growth: "+0.5"
+          }
+        ]
+      },
+      {
+        category: "Infrastructure",
+        stats: [
+          {
+            label: "Compute Capacity",
+            value: "100 PFLOPS",
+            growth: "+300%"
+          },
+          {
+            label: "Energy Efficiency",
+            value: "45%",
+            growth: "+20%"
+          },
+          {
+            label: "Resource Utilization",
+            value: "92%",
+            growth: "+15%"
+          }
+        ]
+      }
+    ]
+  }
+};
+---
+
+<Layout metadata={metadata}>
+  <Hero
+    title="Community Projects"
+    subtitle="Building a sustainable AI ecosystem through community engagement"
+    image={{
+      src: '~/assets/images/community-hero.jpg',
+      alt: 'Community Projects Hero Image',
+    }}
+  />
+
+  {Object.entries(projects).slice(0, 3).map(([key, section]) => (
+    <section class="py-16 bg-gray-50" id={key}>
+      <div class="container mx-auto px-4">
+        <h2 class="text-3xl font-bold text-center mb-2">{section.title}</h2>
+        <p class="text-xl text-gray-600 text-center mb-12">{section.subtitle}</p>
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {section.projects?.map((project) => (
+            <ProjectCard
+              name={project.name}
+              timeline={project.timeline}
+              status={project.status}
+              description={project.description}
+              icon={project.icon}
+              outcomes={project.outcomes}
+              plans={project.plans}
+              metrics={project.metrics}
+            />
+          ))}
+        </div>
+      </div>
+    </section>
+  ))}
+
+  <section class="py-16 bg-white" id="impact">
+    <div class="container mx-auto px-4">
+      <h2 class="text-3xl font-bold text-center mb-2">{projects.impact.title}</h2>
+      <p class="text-xl text-gray-600 text-center mb-12">{projects.impact.subtitle}</p>
+      
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        {projects.impact.metrics.map((category) => (
+          <div class="border rounded-lg p-6 shadow-sm">
+            <h3 class="text-xl font-semibold mb-6">{category.category}</h3>
+            <div class="space-y-6">
+              {category.stats.map((stat) => (
+                <div>
+                  <div class="flex justify-between items-center mb-2">
+                    <span class="text-gray-600">{stat.label}</span>
+                    <span class="text-green-500 text-sm">{stat.growth}</span>
+                  </div>
+                  <div class="text-2xl font-bold">{stat.value}</div>
+                </div>
+              ))}
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="py-16 bg-gray-50">
+    <div class="container mx-auto px-4 text-center">
+      <h2 class="text-3xl font-bold mb-8">Get Involved</h2>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div class="p-6 border rounded-lg shadow-sm bg-white">
+          <Icon name="tabler:user-plus" class="w-12 h-12 mx-auto mb-4 text-primary" />
+          <h3 class="text-xl font-semibold mb-2">Join as Contributor</h3>
+          <p class="text-gray-600">Participate in data collection and validation</p>
+        </div>
+        <div class="p-6 border rounded-lg shadow-sm bg-white">
+          <Icon name="tabler:books" class="w-12 h-12 mx-auto mb-4 text-primary" />
+          <h3 class="text-xl font-semibold mb-2">Learn AI</h3>
+          <p class="text-gray-600">Enroll in our comprehensive training programs</p>
+        </div>
+        <div class="p-6 border rounded-lg shadow-sm bg-white">
+          <Icon name="tabler:briefcase" class="w-12 h-12 mx-auto mb-4 text-primary" />
+          <h3 class="text-xl font-semibold mb-2">Partner with Us</h3>
+          <p class="text-gray-600">Collaborate on research and development</p>
+        </div>
+      </div>
+    </div>
+  </section>
+</Layout>
