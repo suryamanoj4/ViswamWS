@@ -127,14 +127,6 @@ export const headerData = {
       href: 'roadmap',
     },
     {
-      text: 'Vision',
-      href: 'vision',
-    },
-    {
-      text: 'Speech',
-      href: 'speech'
-    },
-    {
       text: 'Structure',
       href: 'structure',
     },
