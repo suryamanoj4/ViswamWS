@@ -1,0 +1,159 @@
+---
+import Layout from '~/layouts/PageLayout.astro';
+import Hero from '~/components/widgets/Hero.astro';
+import { Icon } from 'astro-icon/components';
+
+const metadata = {
+  title: 'Viswam Projects',
+};
+
+const sections = [
+  {
+    title: 'LLM Projects',
+    description: 'Advancing Telugu language processing and creating efficient language models',
+    icon: 'tabler:brain',
+    link: '/llm',
+    highlights: [
+      'Telugu Dataset Development',
+      'Foundational Telugu Model',
+      'Model Optimization',
+      'Research Initiatives'
+    ],
+    color: 'bg-blue-50'
+  },
+  {
+    title: 'Speech Projects',
+    description: 'Developing state-of-the-art speech recognition and synthesis systems',
+    icon: 'tabler:microphone',
+    link: '/speech',
+    highlights: [
+      'Speech Recognition',
+      'Text-to-Speech',
+      'Voice Cloning',
+      'Mobile Models'
+    ],
+    color: 'bg-green-50'
+  },
+  {
+    title: 'Vision Projects',
+    description: 'Creating efficient image understanding and generation systems',
+    icon: 'tabler:photo',
+    link: '/vision',
+    highlights: [
+      'Image Embeddings',
+      'Image Generation',
+      'Image RAG',
+      'Low Resource Solutions'
+    ],
+    color: 'bg-purple-50'
+  },
+  {
+    title: 'Community Projects',
+    description: 'Building a sustainable AI ecosystem through community engagement',
+    icon: 'tabler:users',
+    link: '/community',
+    highlights: [
+      'Education & Upskilling',
+      'Data Collection',
+      'Green Computing',
+      'Infrastructure'
+    ],
+    color: 'bg-orange-50'
+  }
+];
+---
+
+<Layout metadata={metadata}>
+  <Hero
+    title="Viswam Projects"
+    subtitle="Building AI technologies for Indian languages and communities"
+    image={{
+      src: '~/assets/images/hero.jpg',
+      alt: 'AI4Bharat Hero Image',
+    }}
+  >
+    <div class="flex flex-col max-w-xl mx-auto gap-4">
+      <div class="flex justify-center">
+        <a href="#projects" class="btn btn-primary">Explore Projects</a>
+      </div>
+    </div>
+  </Hero>
+
+  <section class="py-16" id="projects">
+    <div class="container mx-auto px-4">
+      <h2 class="text-3xl font-bold text-center mb-4">Our Projects</h2>
+      <p class="text-xl text-gray-600 text-center mb-12">Explore our key initiative areas</p>
+      
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+        {sections.map((section) => (
+          <a href={section.link} class="group">
+            <div class={`h-full p-6 rounded-lg border transition-all duration-300 hover:shadow-lg hover:scale-[1.02] ${section.color}`}>
+              <div class="flex items-center gap-4 mb-4">
+                <div class="w-12 h-12 rounded-lg bg-white/60 flex items-center justify-center">
+                  <Icon name={section.icon} class="w-6 h-6 text-primary" />
+                </div>
+                <div>
+                  <h3 class="text-xl font-semibold group-hover:text-primary transition-colors">
+                    {section.title}
+                    <Icon name="tabler:arrow-right" class="w-5 h-5 inline-block ml-2 opacity-0 group-hover:opacity-100 transition-all -translate-x-3 group-hover:translate-x-0" />
+                  </h3>
+                </div>
+              </div>
+              
+              <p class="text-gray-600 mb-6">
+                {section.description}
+              </p>
+              
+              <div class="grid grid-cols-2 gap-3">
+                {section.highlights.map((highlight) => (
+                  <div class="flex items-center gap-2 text-sm">
+                    <Icon name="tabler:check" class="w-4 h-4 text-green-600" />
+                    <span>{highlight}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="py-16 bg-gray-50">
+    <div class="container mx-auto px-4">
+      <div class="max-w-3xl mx-auto text-center">
+        <h2 class="text-3xl font-bold mb-6">Get Involved</h2>
+        <p class="text-xl text-gray-600 mb-8">
+          Join us in building the future of AI for Indian languages
+        </p>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div class="p-4">
+            <Icon name="tabler:code" class="w-12 h-12 mx-auto mb-4 text-primary" />
+            <h3 class="font-semibold mb-2">Contribute</h3>
+            <p class="text-sm text-gray-600">Join our open-source projects</p>
+          </div>
+          <div class="p-4">
+            <Icon name="tabler:users" class="w-12 h-12 mx-auto mb-4 text-primary" />
+            <h3 class="font-semibold mb-2">Community</h3>
+            <p class="text-sm text-gray-600">Participate in our initiatives</p>
+          </div>
+          <div class="p-4">
+            <Icon name="tabler:building" class="w-12 h-12 mx-auto mb-4 text-primary" />
+            <h3 class="font-semibold mb-2">Partner</h3>
+            <p class="text-sm text-gray-600">Collaborate with us</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <style>
+    .project-card {
+      transition: transform 0.2s ease-in-out;
+    }
+    
+    .project-card:hover {
+      transform: translateY(-2px);
+    }
+  </style>
+</Layout>

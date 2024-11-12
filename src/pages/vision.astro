@@ -1,0 +1,314 @@
+---
+import { Icon } from 'astro-icon/components';
+import Layout from '~/layouts/PageLayout.astro';
+import Hero from '~/components/widgets/Hero.astro';
+import ProjectCard from '~/components/widgets/ProjectCard.astro';
+
+const metadata = {
+  title: 'Vision Projects',
+};
+
+const projects = {
+  understanding: {
+    title: 'Image Understanding',
+    subtitle: 'Advancing image analysis and understanding capabilities',
+    projects: [
+      {
+        name: "New Image Embeddings",
+        timeline: "Q1 2024 - Q3 2024",
+        status: "Active",
+        description: "Developing improved image representation techniques",
+        icon: 'tabler:photo',
+        outcomes: [
+          "Novel embedding architecture",
+          "Cross-modal compatibility",
+          "Cultural context awareness",
+          "Efficient computation",
+          "Evaluation framework"
+        ],
+        plans: [
+          "Scale to larger datasets",
+          "Add more domains",
+          "Improve efficiency",
+          "Create visualization tools",
+          "Build benchmark suite"
+        ],
+        metrics: {
+          dimension: 1024,
+          speed: "5ms/image",
+          accuracy: "94%",
+          compression: "75%"
+        }
+      },
+      {
+        name: "Image to Text",
+        timeline: "Q2 2024 - Q4 2024",
+        status: "Planning",
+        description: "Creating accurate image captioning systems in Telugu",
+        icon: 'tabler:photo-code',
+        outcomes: [
+          "Telugu caption generation",
+          "Cultural context awareness",
+          "Multi-lingual support",
+          "Style control",
+          "Evaluation metrics"
+        ],
+        plans: [
+          "Expand language support",
+          "Improve accuracy",
+          "Add style variants",
+          "Create demo platform",
+          "Build mobile app"
+        ],
+        metrics: {
+          languages: 5,
+          bleuScore: 38.5,
+          latency: "200ms",
+          accuracy: "92%"
+        }
+      }
+    ]
+  },
+  generation: {
+    title: 'Generation & Retrieval',
+    subtitle: 'Creating efficient image generation and retrieval systems',
+    projects: [
+      {
+        name: "Low-Resource Image Generation",
+        timeline: "Q2 2024 - Q1 2025",
+        status: "Research",
+        description: "Developing efficient image generation models",
+        icon: 'tabler:photo-plus',
+        outcomes: [
+          "Lightweight architecture",
+          "Mobile optimization",
+          "Quality metrics",
+          "Style preservation",
+          "Resource monitoring"
+        ],
+        plans: [
+          "Reduce model size",
+          "Improve generation speed",
+          "Add more styles",
+          "Create mobile SDK",
+          "Build demo apps"
+        ],
+        metrics: {
+          modelSize: "2GB",
+          genTime: "2s",
+          fid: 18.5,
+          styles: 10
+        }
+      },
+      {
+        name: "Image RAG Systems",
+        timeline: "Q3 2024 - Q2 2025",
+        status: "Planning",
+        description: "Building retrieval-augmented generation for images",
+        icon: 'tabler:search',
+        outcomes: [
+          "Retrieval pipeline",
+          "Context integration",
+          "Multi-modal search",
+          "Quality filters",
+          "Performance metrics"
+        ],
+        plans: [
+          "Scale image database",
+          "Improve relevance",
+          "Add semantic search",
+          "Create API",
+          "Build UI tools"
+        ],
+        metrics: {
+          dbSize: "10M images",
+          recall: "95%",
+          latency: "100ms",
+          precision: "92%"
+        }
+      }
+    ]
+  },
+  metrics: {
+    title: 'Performance Metrics',
+    subtitle: 'Key indicators of our vision technologies',
+    data: [
+      {
+        category: "Model Efficiency",
+        metrics: [
+          {
+            name: "Average Model Size",
+            value: "2.5GB",
+            change: "-40%",
+            trend: "down"
+          },
+          {
+            name: "Inference Time",
+            value: "150ms",
+            change: "-25%",
+            trend: "down"
+          },
+          {
+            name: "Memory Usage",
+            value: "4GB",
+            change: "-30%",
+            trend: "down"
+          }
+        ]
+      },
+      {
+        category: "Quality Metrics",
+        metrics: [
+          {
+            name: "FID Score",
+            value: "18.5",
+            change: "+15%",
+            trend: "up"
+          },
+          {
+            name: "BLEU Score",
+            value: "38.5",
+            change: "+12%",
+            trend: "up"
+          },
+          {
+            name: "User Satisfaction",
+            value: "4.6/5",
+            change: "+8%",
+            trend: "up"
+          }
+        ]
+      }
+    ]
+  },
+  technologies: {
+    title: 'Core Technologies',
+    items: [
+      {
+        name: "Efficient Architectures",
+        description: "Optimized model architectures for low-resource environments",
+        icon: 'tabler:cpu',
+        features: [
+          "Mobile-first design",
+          "Memory optimization",
+          "Battery efficiency",
+          "Edge deployment"
+        ]
+      },
+      {
+        name: "Cultural Context",
+        description: "Systems designed for Indian visual elements and context",
+        icon: 'tabler:friends',
+        features: [
+          "Local style awareness",
+          "Cultural preservation",
+          "Context sensitivity",
+          "Regional adaptation"
+        ]
+      },
+      {
+        name: "Multi-modal Integration",
+        description: "Seamless integration of vision and language",
+        icon: 'tabler:arrows-exchange',
+        features: [
+          "Cross-modal learning",
+          "Joint representations",
+          "Unified processing",
+          "Context transfer"
+        ]
+      }
+    ]
+  }
+};
+---
+
+<Layout metadata={metadata}>
+  <Hero
+    title="Vision Projects"
+    subtitle="Advancing image understanding and generation with focus on efficiency"
+    image={{
+      src: '~/assets/images/vision-hero.jpg',
+      alt: 'Vision Projects Hero Image',
+    }}
+  />
+
+  {Object.entries(projects).slice(0, 2).map(([key, section]) => (
+    <section class="py-16 bg-gray-50" id={key}>
+      <div class="container mx-auto px-4">
+        <h2 class="text-3xl font-bold text-center mb-2">{section.title}</h2>
+        <p class="text-xl text-gray-600 text-center mb-12">{section.subtitle}</p>
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+          {section.projects.map((project) => (
+            <ProjectCard
+              name={project.name}
+              timeline={project.timeline}
+              status={project.status}
+              description={project.description}
+              icon={project.icon}
+              outcomes={project.outcomes}
+              plans={project.plans}
+              metrics={project.metrics}
+            />
+          ))}
+        </div>
+      </div>
+    </section>
+  ))}
+
+  <section class="py-16 bg-white" id="metrics">
+    <div class="container mx-auto px-4">
+      <h2 class="text-3xl font-bold text-center mb-2">{projects.metrics.title}</h2>
+      <p class="text-xl text-gray-600 text-center mb-12">{projects.metrics.subtitle}</p>
+      
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+        {projects.metrics.data.map((category) => (
+          <div class="border rounded-lg p-6 shadow-sm">
+            <h3 class="text-xl font-semibold mb-4">{category.category}</h3>
+            <div class="space-y-4">
+              {category.metrics.map((metric) => (
+                <div class="flex justify-between items-center">
+                  <span class="text-gray-600">{metric.name}</span>
+                  <div class="flex items-center gap-2">
+                    <span class="font-semibold">{metric.value}</span>
+                    <span class={`text-sm ${
+                      metric.trend === 'up' ? 'text-green-500' : 'text-blue-500'
+                    }`}>
+                      {metric.change}
+                    </span>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="py-16 bg-gray-50" id="technologies">
+    <div class="container mx-auto px-4">
+      <h2 class="text-3xl font-bold text-center mb-12">{projects.technologies.title}</h2>
+      
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        {projects.technologies.items.map((tech) => (
+          <div class="border rounded-lg p-6 shadow-sm bg-white">
+            <div class="flex items-center gap-3 mb-4">
+              <Icon name={tech.icon} class="w-6 h-6 text-primary" />
+              <h3 class="text-xl font-semibold">{tech.name}</h3>
+            </div>
+            <p class="text-gray-600 mb-4">{tech.description}</p>
+            <ul class="space-y-2">
+              {tech.features.map((feature) => (
+                <li class="flex items-center gap-2">
+                  <Icon name="tabler:check" class="w-5 h-5 text-green-500" />
+                  <span class="text-sm">{feature}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+</Layout>

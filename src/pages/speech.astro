@@ -1,0 +1,258 @@
+---
+import { Icon } from 'astro-icon/components';
+import Layout from '~/layouts/PageLayout.astro';
+import Hero from '~/components/widgets/Hero.astro';
+import Features from '~/components/widgets/Features.astro';
+import Content from '~/components/widgets/Content.astro';
+import ProjectCard from '~/components/widgets/ProjectCard.astro';
+
+const metadata = {
+  title: 'Speech Projects',
+};
+
+const projects = {
+  recognition: {
+    title: 'Speech Recognition',
+    subtitle: 'Advancing Telugu speech recognition technologies',
+    projects: [
+      {
+        name: "Telugu ASR Dataset",
+        timeline: "Q1 2024 - Q4 2024",
+        status: "Active",
+        description: "Building comprehensive speech recognition dataset for Telugu",
+        icon: 'tabler:microphone',
+        outcomes: [
+          "1000 hours of annotated speech",
+          "Multi-dialect coverage",
+          "Quality validation pipeline",
+          "Standardized metadata format",
+          "Speaker demographic diversity"
+        ],
+        plans: [
+          "Expand to 5000 hours",
+          "Add regional variations",
+          "Create automated cleaning tools",
+          "Implement continuous validation",
+          "Build data augmentation pipeline"
+        ],
+        metrics: {
+          totalHours: 1000,
+          dialects: 5,
+          speakers: 1000,
+          qualityScore: 4.5
+        }
+      },
+      {
+        name: "Mobile ASR Models",
+        timeline: "Q2 2024 - Q1 2025",
+        status: "Planning",
+        description: "Developing efficient mobile-first speech recognition models",
+        icon: 'tabler:device-mobile',
+        outcomes: [
+          "Sub-100MB model size",
+          "Real-time recognition",
+          "Offline capability",
+          "Multi-dialect support",
+          "Low-latency inference"
+        ],
+        plans: [
+          "Optimize for various devices",
+          "Reduce memory footprint",
+          "Improve battery efficiency",
+          "Add streaming capability",
+          "Implement error recovery"
+        ],
+        metrics: {
+          modelSize: "95MB",
+          accuracy: "94%",
+          latency: "200ms",
+          batteryImpact: "Low"
+        }
+      }
+    ]
+  },
+  synthesis: {
+    title: 'Text-to-Speech',
+    subtitle: 'Creating natural and expressive speech synthesis',
+    projects: [
+      {
+        name: "TTS Dataset Development",
+        timeline: "Q2 2024 - Q4 2024",
+        status: "Active",
+        description: "Creating high-quality TTS training data",
+        icon: 'tabler:volume',
+        outcomes: [
+          "500 hours of professional audio",
+          "Prosody annotations",
+          "Emotion labels",
+          "Multiple speaking styles",
+          "Clean transcription alignment"
+        ],
+        plans: [
+          "Add more voice varieties",
+          "Expand emotion coverage",
+          "Improve annotation quality",
+          "Create style transfer datasets",
+          "Develop prosody modeling"
+        ],
+        metrics: {
+          audioHours: 500,
+          speakers: 50,
+          emotions: 8,
+          styles: 5
+        }
+      },
+      {
+        name: "10,000 TTS Voices",
+        timeline: "Q3 2024 - Q2 2025",
+        status: "Research",
+        description: "Scaling voice synthesis to thousands of unique voices",
+        icon: 'tabler:users',
+        outcomes: [
+          "Voice generation pipeline",
+          "Quality assessment metrics",
+          "Voice search system",
+          "Style preservation",
+          "Cross-speaker consistency"
+        ],
+        plans: [
+          "Improve voice quality",
+          "Add style control",
+          "Create voice marketplace",
+          "Implement voice mixing",
+          "Develop voice customization"
+        ],
+        metrics: {
+          voicesGenerated: 10000,
+          qualityScore: 4.2,
+          stylesPerVoice: 3,
+          generationSpeed: "5s"
+        }
+      },
+      {
+        name: "Voice Cloning",
+        timeline: "Q1 2024 - Q4 2024",
+        status: "Active",
+        description: "Developing accurate voice cloning technology",
+        icon: 'tabler:copy',
+        outcomes: [
+          "Few-shot voice adaptation",
+          "Identity preservation",
+          "Real-time synthesis",
+          "Emotion transfer",
+          "Accent preservation"
+        ],
+        plans: [
+          "Reduce required sample length",
+          "Improve naturalness",
+          "Add emotion control",
+          "Implement style mixing",
+          "Create safety measures"
+        ],
+        metrics: {
+          sampleLength: "30s",
+          similarityScore: 4.8,
+          adaptationTime: "10s",
+          emotionAccuracy: "92%"
+        }
+      }
+    ]
+  },
+  research: {
+    title: 'Speech Technology Research',
+    subtitle: 'Exploring novel approaches to speech processing',
+    projects: [
+      {
+        name: "Non-Transformer Speech Models",
+        timeline: "Q2 2024 - Q2 2025",
+        status: "Research",
+        description: "Developing alternative architectures for speech processing",
+        icon: 'tabler:brain',
+        outcomes: [
+          "Novel architecture designs",
+          "Performance benchmarks",
+          "Resource utilization metrics",
+          "Scaling characteristics",
+          "Training efficiency gains"
+        ],
+        plans: [
+          "Scale to production",
+          "Optimize training",
+          "Create deployment tools",
+          "Document architecture",
+          "Publish research findings"
+        ],
+        metrics: {
+          performanceGain: "25%",
+          resourceReduction: "40%",
+          trainingSpeed: "2x",
+          modelSize: "60% smaller"
+        }
+      },
+      {
+        name: "Speech Embeddings",
+        timeline: "Q3 2024 - Q1 2025",
+        status: "Planning",
+        description: "Creating accent and speaker embedding systems",
+        icon: 'tabler:vector',
+        outcomes: [
+          "Accent classification",
+          "Speaker identification",
+          "Embedding visualization",
+          "Cross-lingual mappings",
+          "Style representation"
+        ],
+        plans: [
+          "Improve accent detection",
+          "Add more languages",
+          "Create accent map tool",
+          "Develop style transfer",
+          "Build demonstration platform"
+        ],
+        metrics: {
+          accentAccuracy: "95%",
+          speakerAccuracy: "98%",
+          embeddingDim: 256,
+          languagesCovered: 10
+        }
+      }
+    ]
+  }
+};
+---
+
+<Layout metadata={metadata}>
+  <Hero
+    title="Speech Projects"
+    subtitle="Advancing speech technologies for Indian languages"
+    image={{
+      src: '~/assets/images/speech-hero.jpg',
+      alt: 'Speech Projects Hero Image',
+    }}
+  />
+
+  {Object.entries(projects).map(([key, section]) => (
+    <section class="py-16 bg-gray-50" id={key}>
+      <div class="container mx-auto px-4">
+        <h2 class="text-3xl font-bold text-center mb-2">{section.title}</h2>
+        <p class="text-xl text-gray-600 text-center mb-12">{section.subtitle}</p>
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+          {section.projects.map((project) => (
+            <ProjectCard
+              name={project.name}
+              timeline={project.timeline}
+              status={project.status}
+              description={project.description}
+              icon={project.icon}
+              outcomes={project.outcomes}
+              plans={project.plans}
+              metrics={project.metrics}
+            />
+          ))}
+        </div>
+      </div>
+    </section>
+  ))}
+
+</Layout>

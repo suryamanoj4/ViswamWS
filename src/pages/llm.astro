@@ -1,0 +1,307 @@
+---
+import { Icon } from 'astro-icon/components';
+import Layout from '~/layouts/PageLayout.astro';
+import Hero from '~/components/widgets/Hero.astro';
+import ProjectCard from '~/components/widgets/ProjectCard.astro';
+
+const metadata = {
+  title: 'LLM Projects',
+};
+
+const projects = {
+  foundation: {
+    title: 'Telugu Language Foundation',
+    subtitle: 'Building the core infrastructure for Telugu language AI',
+    projects: [
+      {
+        name: "Telugu Dataset Development",
+        timeline: "Q1 2024 - Q4 2024",
+        status: "Active",
+        description: "Creating comprehensive Telugu language datasets for NLP tasks",
+        icon: 'tabler:database',
+        outcomes: [
+          "100GB cleaned text data",
+          "Standardized preprocessing pipeline",
+          "Multi-domain coverage",
+          "Quality assessment framework",
+          "Data augmentation tools"
+        ],
+        plans: [
+          "Expand to 500GB data",
+          "Add domain-specific datasets",
+          "Implement automated cleaning",
+          "Create benchmark sets",
+          "Build evaluation tools"
+        ],
+        metrics: {
+          dataSize: "100GB",
+          domains: 12,
+          qualityScore: 4.8,
+          coverage: "95%"
+        }
+      },
+      {
+        name: "Foundational Telugu Model",
+        timeline: "Q2 2024 - Q2 2025",
+        status: "Planning",
+        description: "Developing a base language model specifically for Telugu",
+        icon: 'tabler:brain',
+        outcomes: [
+          "1B parameter base model",
+          "Efficient architecture",
+          "Domain adaptation capability",
+          "Evaluation framework",
+          "Fine-tuning pipeline"
+        ],
+        plans: [
+          "Scale to 3B parameters",
+          "Optimize for inference",
+          "Create model variants",
+          "Develop training tools",
+          "Build model hub"
+        ],
+        metrics: {
+          parameters: "1B",
+          perplexity: 4.2,
+          trainTime: "72hrs",
+          efficiency: "90%"
+        }
+      },
+      {
+        name: "Telugu Tokenization",
+        timeline: "Q1 2024 - Q3 2024",
+        status: "Active",
+        description: "Building efficient tokenization for Telugu text",
+        icon: 'tabler:text-recognition',
+        outcomes: [
+          "Custom tokenizer",
+          "Optimized vocabulary",
+          "Morphological handling",
+          "Subword segmentation",
+          "Performance benchmarks"
+        ],
+        plans: [
+          "Reduce vocab size",
+          "Improve rare words",
+          "Add compositionality",
+          "Create tools",
+          "Document best practices"
+        ],
+        metrics: {
+          vocabSize: "32K",
+          coverage: "99.9%",
+          speed: "1M tokens/s",
+          compression: "85%"
+        }
+      }
+    ]
+  },
+  research: {
+    title: 'Advanced NLP Research',
+    subtitle: 'Pushing boundaries in language understanding',
+    projects: [
+      {
+        name: "New Sentence Embeddings",
+        timeline: "Q3 2024 - Q1 2025",
+        status: "Research",
+        description: "Developing improved sentence embedding techniques",
+        icon: 'tabler:vector',
+        outcomes: [
+          "Novel embedding architecture",
+          "Cross-lingual mappings",
+          "Evaluation framework",
+          "Visualization tools",
+          "Research publication"
+        ],
+        plans: [
+          "Scale to more languages",
+          "Improve efficiency",
+          "Create embeddings API",
+          "Build demo platform",
+          "Release research tools"
+        ],
+        metrics: {
+          dimension: 768,
+          languages: 8,
+          similarity: "92%",
+          speed: "10K sent/s"
+        }
+      },
+      {
+        name: "Shape of Stories",
+        timeline: "Q2 2024 - Q4 2024",
+        status: "Active",
+        description: "Analyzing narrative structures in Telugu literature",
+        icon: 'tabler:book',
+        outcomes: [
+          "Story pattern detection",
+          "Cultural preservation",
+          "Analysis toolkit",
+          "Pattern visualization",
+          "Research findings"
+        ],
+        plans: [
+          "Expand story corpus",
+          "Add more languages",
+          "Create visualization",
+          "Build story generator",
+          "Document patterns"
+        ],
+        metrics: {
+          patterns: 25,
+          stories: 10000,
+          accuracy: "88%",
+          genres: 15
+        }
+      }
+    ]
+  },
+  optimization: {
+    title: 'Model Optimization',
+    subtitle: 'Making models more efficient and accessible',
+    projects: [
+      {
+        name: "Quantizing/Shortening LLMs",
+        timeline: "Q3 2024 - Q2 2025",
+        status: "Planning",
+        description: "Optimizing model size and performance",
+        icon: 'tabler:minimize',
+        outcomes: [
+          "4-bit quantization",
+          "Model pruning",
+          "Performance preservation",
+          "Mobile deployment",
+          "Benchmark suite"
+        ],
+        plans: [
+          "Explore 2-bit models",
+          "Improve speed",
+          "Reduce memory",
+          "Create SDK",
+          "Build demo apps"
+        ],
+        metrics: {
+          compression: "75%",
+          speedup: "3x",
+          accuracy: "98%",
+          size: "2GB"
+        }
+      },
+      {
+        name: "Synthetic Data Generation",
+        timeline: "Q2 2024 - Q4 2024",
+        status: "Active",
+        description: "Creating synthetic training data for improved model performance",
+        icon: 'tabler:transform',
+        outcomes: [
+          "Data generation pipeline",
+          "Quality metrics",
+          "Diversity measures",
+          "Validation tools",
+          "Generation controls"
+        ],
+        plans: [
+          "Scale generation",
+          "Improve quality",
+          "Add more domains",
+          "Create GUI",
+          "Release toolkit"
+        ],
+        metrics: {
+          dataGenerated: "50GB",
+          quality: 4.6,
+          diversity: "85%",
+          speed: "100K/hr"
+        }
+      },
+      {
+        name: "Telugu Tiny Stories",
+        timeline: "Q2 2024 - Q3 2024",
+        status: "Active",
+        description: "Creating concise, efficient story generation models",
+        icon: 'tabler:article',
+        outcomes: [
+          "Compact story model",
+          "Generation pipeline",
+          "Quality metrics",
+          "Style controls",
+          "Mobile deployment"
+        ],
+        plans: [
+          "Expand story types",
+          "Add interactivity",
+          "Improve coherence",
+          "Create app",
+          "Build community"
+        ],
+        metrics: {
+          modelSize: "100MB",
+          stories: 50000,
+          quality: 4.5,
+          genres: 8
+        }
+      }
+    ]
+  }
+};
+---
+
+<Layout metadata={metadata}>
+  <Hero
+    title="LLM Projects"
+    subtitle="Advancing Telugu language processing and creating efficient, accessible language models"
+    image={{
+      src: '~/assets/images/llm-hero.jpg',
+      alt: 'LLM Projects Hero Image',
+    }}
+  />
+
+  {Object.entries(projects).map(([key, section]) => (
+    <section class="py-16 bg-gray-50" id={key}>
+      <div class="container mx-auto px-4">
+        <h2 class="text-3xl font-bold text-center mb-2">{section.title}</h2>
+        <p class="text-xl text-gray-600 text-center mb-12">{section.subtitle}</p>
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {section.projects.map((project) => (
+            <ProjectCard
+              name={project.name}
+              timeline={project.timeline}
+              status={project.status}
+              description={project.description}
+              icon={project.icon}
+              outcomes={project.outcomes}
+              plans={project.plans}
+              metrics={project.metrics}
+            />
+          ))}
+        </div>
+      </div>
+    </section>
+  ))}
+
+  <section class="py-16 bg-white">
+    <div class="container mx-auto px-4">
+      <h2 class="text-3xl font-bold text-center mb-8">Project Timeline</h2>
+      <div class="relative">
+        <div class="absolute left-1/2 -ml-0.5 w-0.5 h-full bg-gray-200"></div>
+        <div class="space-y-8">
+          {Object.values(projects).flatMap(section => 
+            section.projects.map(project => (
+              <div class="relative flex items-center">
+                <div class="flex-1 text-right pr-8">
+                  <h3 class="font-semibold">{project.name}</h3>
+                  <p class="text-sm text-gray-500">{project.timeline}</p>
+                </div>
+                <div class="w-4 h-4 rounded-full bg-primary border-4 border-white"></div>
+                <div class="flex-1 pl-8">
+                  <p class="text-sm">{project.description}</p>
+                </div>
+              </div>
+            ))
+          )}
+        </div>
+      </div>
+    </div>
+  </section>
+</Layout>

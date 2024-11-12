@@ -116,7 +116,7 @@ export const headerData = {
     },
     {
       text: 'Projects',
-      href: 'projects',
+      href: 'projects_list',
     },
     {
       text: 'Collaborations',
@@ -128,7 +128,11 @@ export const headerData = {
     },
     {
       text: 'Vision',
-      href: 'values',
+      href: 'vision',
+    },
+    {
+      text: 'Speech',
+      href: 'speech'
     },
     {
       text: 'Structure',

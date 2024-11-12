@@ -1,0 +1,155 @@
+---
+import { Icon } from 'astro-icon/components';
+
+interface Metric {
+  [key: string]: string | number;
+}
+
+interface Props {
+  name: string;
+  timeline: string;
+  status: 'Active' | 'Planning' | 'Research';
+  description: string;
+  icon: string;
+  outcomes: string[];
+  plans: string[];
+  metrics: Metric;
+}
+
+const { 
+  name, 
+  timeline, 
+  status, 
+  description, 
+  icon, 
+  outcomes, 
+  plans, 
+  metrics 
+} = Astro.props;
+
+const getStatusColor = (status: string) => {
+  switch (status) {
+    case 'Active':
+      return 'bg-green-100 text-green-800 border-green-200';
+    case 'Planning':
+      return 'bg-yellow-100 text-yellow-800 border-yellow-200';
+    case 'Research':
+      return 'bg-blue-100 text-blue-800 border-blue-200';
+    default:
+      return 'bg-gray-100 text-gray-800 border-gray-200';
+  }
+};
+
+const formatMetricValue = (value: string | number) => {
+  if (typeof value === 'number') {
+    if (value >= 1000) {
+      return `${(value/1000).toFixed(1)}K`;
+    }
+    return value.toString();
+  }
+  return value;
+};
+
+const formatMetricKey = (key: string) => {
+  return key
+    .replace(/([A-Z])/g, ' $1')
+    .replace(/^./, str => str.toUpperCase());
+};
+---
+
+<!-- Updated card structure for better layout -->
+<div class="bg-white border rounded-lg shadow-sm overflow-hidden h-full flex flex-col">
+  <!-- Header - Increased padding and spacing -->
+  <div class="p-6 border-b">
+    <div class="flex items-start gap-4 mb-4">
+      <div class="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center flex-shrink-0">
+        <Icon name={icon} class="w-6 h-6 text-primary" />
+      </div>
+      <div class="min-w-0 flex-1"> <!-- Added flex-1 to ensure proper text wrapping -->
+        <h3 class="text-xl font-semibold mb-2">{name}</h3>
+        <div class="flex items-center gap-3 flex-wrap">
+          <span class="text-sm text-gray-500 flex items-center gap-2">
+            <Icon name="tabler:calendar" class="w-4 h-4" />
+            {timeline}
+          </span>
+        </div>
+      </div>
+    </div>
+    <!-- Increased bottom margin for description -->
+    <p class="text-gray-600 leading-relaxed">{description}</p>
+  </div>
+
+  <!-- Content - Increased section spacing -->
+  <div class="p-6 space-y-8 flex-grow"> <!-- Increased space between sections -->
+    <div class="grid md:grid-cols-2 gap-8"> <!-- Increased gap between columns -->
+      <!-- Outcomes -->
+      <div class="space-y-4"> <!-- Added vertical spacing -->
+        <h4 class="font-semibold flex items-center gap-2 text-sm">
+          <Icon name="tabler:target" class="w-5 h-5 text-primary" />
+          Key Outcomes
+        </h4>
+        <ul class="space-y-3"> <!-- Increased space between items -->
+          {outcomes.slice(0, 4).map(outcome => (
+            <li class="flex items-start gap-3 text-sm text-gray-600">
+              <Icon name="tabler:check" class="w-5 h-5 text-green-500 mt-0.5 flex-shrink-0" />
+              <span class="leading-relaxed">{outcome}</span>
+            </li>
+          ))}
+        </ul>
+      </div>
+
+      <!-- Plans -->
+      <div class="space-y-4"> <!-- Added vertical spacing -->
+        <h4 class="font-semibold flex items-center gap-2 text-sm">
+          <Icon name="tabler:route" class="w-5 h-5 text-primary" />
+          Future Plans
+        </h4>
+        <ul class="space-y-3"> <!-- Increased space between items -->
+          {plans.slice(0, 4).map(plan => (
+            <li class="flex items-start gap-3 text-sm text-gray-600">
+              <Icon name="tabler:arrow-right" class="w-5 h-5 text-blue-500 mt-0.5 flex-shrink-0" />
+              <span class="leading-relaxed">{plan}</span>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </div>
+
+    <!-- Metrics - Better spacing and larger boxes -->
+    <div class="border-t pt-6"> <!-- Increased top padding -->
+      <h4 class="font-semibold mb-4 flex items-center gap-2 text-sm"> <!-- Increased bottom margin -->
+        <Icon name="tabler:chart-bar" class="w-5 h-5 text-primary" />
+        Key Metrics
+      </h4>
+      <div class="grid grid-cols-2 gap-4"> <!-- Increased gap between metric boxes -->
+        {Object.entries(metrics).map(([key, value]) => (
+          <div class="bg-gray-50 p-4 rounded-lg"> <!-- Increased padding and larger border radius -->
+            <div class="text-sm text-gray-500 mb-1">{formatMetricKey(key)}</div>
+            <div class="font-semibold text-lg">{formatMetricValue(value)}</div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer - Increased padding -->
+  <div class="px-6 py-4 bg-gray-50 border-t">
+    <div class="flex justify-end">
+      <button class="text-sm text-primary hover:text-primary/80 font-medium flex items-center gap-2 px-3 py-2 hover:bg-primary/5 rounded-md transition-colors">
+        View Details
+        <Icon name="tabler:chevron-right" class="w-5 h-5" />
+      </button>
+    </div>
+  </div>
+</div>
+
+<style>
+  /* Optional: Add smooth transitions for hover effects */
+  .bg-primary\/10 {
+    transition: background-color 0.2s ease-in-out;
+  }
+  
+  button {
+    transition: all 0.2s ease-in-out;
+  }
+</style>
