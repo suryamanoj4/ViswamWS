@@ -6,6 +6,10 @@ import Features from '~/components/widgets/Features.astro';
 import Content from '~/components/widgets/Content.astro';
 import { LineChart } from 'recharts';
 import VerticalTimeline from '~/components/VerticalTimeline';
+import { Image } from 'astro:assets';
+import SwechaLogoWhite from '../assets/images/SwechaLogoWhite.png';
+import IIITLogoWhite from '../assets/images/IIITLogoWhite.png';
+
 const metadata = {
   title: 'VISWAM.ai - AI for the Global South',
   description: 'Centre of Excellence on AI for the Global South - A Joint Initiative of Swecha and IIIT Hyderabad',
@@ -17,7 +21,7 @@ const metadata = {
   <Hero
     tagline="Centre of Excellence on AI for the Global South"
     actions={[]}
-    image={{ 
+    image={{
       src: '~/assets/images/hero.jpg',
       alt: 'VISWAM.ai Hero Image'
     }}
@@ -129,7 +133,14 @@ const metadata = {
   <!-- Footer -->
   <div class="bg-dark text-white text-center py-8">
     <p>VISWAM.ai - Pronounced 'viswamayee'</p>
-    <p><u>V</u>enture for <u>I</u>nnovation and <u>S</u>ocial <u>W</u>ellbeing through <u>A</u>I for the <u>M</u>arginalised</p>
+    <p>
+      <u>V</u>enture for <u>I</u>nnovation and <u>S</u>ocial <u>W</u>ellbeing through <u>A</u>I for the <u>M</u
+      >arginalised
+    </p>
+    <div class="mt-4 flex justify-center">
+      <Image src={SwechaLogoWhite} alt="Swecha" class="w-32 h-32 mr-4" />
+      <Image src={IIITLogoWhite} alt="IIIT Hyderabad" class="w-40 h-32" />
+    </div>
     <p>A Joint Initiative of Swecha and IIIT Hyderabad</p>
   </div>
 </Layout>
