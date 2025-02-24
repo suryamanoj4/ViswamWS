@@ -10,14 +10,56 @@ const metadata = {
     description: 'Various activities conducted by Viswan AI such as conferences, hackatons and so on.',
 };
 
-const ainews = [
+const activities = [
     {
         title: 'AI Days',
         description: 'AI Days 2025 is being organized by Viswam.AI, a joint initiative by IIIT Hyderabad and Swecha, focusing on building foundational AI technologies for the Global South.
 
 AI Days aims to bring together experts and institutions from Industry, Academia, Startups and Government who work on a shared goal of people-centric AI. We envision the conference as the melting pot for breakthrough advancements in tech, policy, art and more avenues centred around responsible AI.',
         link: 'https://aidays.io/',
-        image: 'https://bl-i.thgim.com/public/todays-paper/tp-news/cz36s9/article69006570.ece/alternates/LANDSCAPE_1200/quickly_Inside_GT2DO8L42.3.jpg.jpg',
+        image: 'https://aidays.io/_next/image?url=%2Fimages%2Fabout-0.jpeg&w=1920&q=75',
     },
 ];
 ---
+<Layout metadata={metadata}>
+    <Hero
+        title="Activities"
+    >
+        <Fragment slot="subtitle">
+            Activities hosted by Viswam AI in collaboration with various orgs such as swecha and IIIT-H
+        </Fragment>
+    </Hero>
+
+    <div class="max-w-6xl mx-auto px-4 py-16 lg:px-8">
+    <h2 class="text-2xl font-bold mb-4 text-center">Activities</h2>
+    <div class="grid grid-cols-1 h-screen w-screen">
+        {activities.map(acts => (
+        <a href={acts.link} class="block rounded-2xl overflow-hidden shadow-md hover:shadow-lg transition-shadow">
+        <div class="bg-ciel rounded-2xl shadow-md p-4 hover:shadow-lg transition-shadow">
+            <div style="background: url({acts.image}) no-repeat center center fixed; 
+            background-size: cover; 
+            height: 100vh; 
+            width: 100vw; 
+            display: flex; 
+            justify-content: center; 
+            align-items: center; 
+            color: white; 
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7); 
+            text-align: center;">
+            <div>
+                <h2 class="font-bold text-xl mb-2">{acts.title}</h2>
+                <p class="text-muted">{acts.description}</p>
+            </div>
+            </div>
+        </div>
+        </a>
+        ))}
+    </div>
+    </div>
+
+    <div class="text-center py-8 text-sm text-muted">
+    <p>VISWAM.ai - Pronounced 'viswamayee'</p>
+    <p>Venture for Innovation and Social Wellbeing through AI for the Marginalised</p>
+    <p>A Joint Initiative of Swecha and IIIT Hyderabad</p>
+    </div>
+</Layout>
