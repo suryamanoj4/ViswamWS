@@ -1,0 +1,58 @@
+---
+import Layout from '~/layouts/PageLayout.astro';
+import Hero from '~/components/widgets/Hero.astro';
+import Content from '~/components/widgets/Content.astro';
+import Features from '~/components/widgets/Features.astro';
+import Stats from '~/components/widgets/Stats.astro';
+
+const metadata = {
+    title: 'Ai-News Page',
+    description: 'Compilation of the latest AI new in tech',
+};
+
+const ainews = [
+    {
+        title: 'OpenAi Releases GPT-5',
+        description: 'OpenAI has unveiled GPT-5,featuring enhanced reasoning nd multimodel capabilities. Learn how this update could revolutionize industries.',
+        link: 'https://www.forbes.com/sites/bernardmarr/2025/02/19/openais-gpt-5-is-coming-heres-what-we-know-so-far/',
+    },
+    {
+        title: 'Google DeepMind AI: An Weather Wizard',
+        description: 'A new AI model from DeepMinf is outperforming traditional weather forecasting methods, offering predictions up to 10 days in advance.',
+        link: 'https://deepmind.google/technologies/weathernext/',
+    },
+    {
+        title: 'AI Ethics in Focus: EU Passes Stricter Regulations',
+        description: 'The European Union has introduced new AI regulations to ensure transparency and accountanility in AI systems.',
+        link: 'https://digital-strategy.ec.europa.eu/en/policies/regulatory-framework-ai',
+    },
+];
+---
+
+<Layout metadata={metadata}>
+    <Hero
+        title="AI News Page"
+    >
+        <Fragment slot="subtitle">
+            View the latest news in the field of AI from all around the world
+        </Fragment>
+    </Hero>
+
+    <div class="max-w-6xl mx-auto px-4 py-16 lg:px-8">
+    <h2 class="text-3xl font-bold mb-8 text-center">AI News</h2>
+        <div class="space-y-8">
+            {ainews.map(news => (
+                <div>
+                    <h3 class="font-bold text-xl mb-2">{news.title}</h3>
+                    <p class="text-muted">{news.description}<a href={news.link}><i>Read more...</i></a></p>
+                </div>
+                ))}
+            </div>
+    </div>
+
+    <div class="text-center py-8 text-sm text-muted">
+    <p>VISWAM.ai - Pronounced 'viswamayee'</p>
+    <p>Venture for Innovation and Social Wellbeing through AI for the Marginalised</p>
+    <p>A Joint Initiative of Swecha and IIIT Hyderabad</p>
+    </div>
+</Layout>
