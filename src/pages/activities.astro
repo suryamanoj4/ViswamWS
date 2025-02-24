@@ -30,21 +30,10 @@ const activities = [
 
     <div class="max-w-6xl mx-auto px-4 py-16 lg:px-8">
     <h2 class="text-2xl font-bold mb-4 text-center">Activities</h2>
-    <div class="grid grid-cols-1 h-screen w-screen">
         {activities.map(acts => (
         <a href={acts.link} class="block rounded-2xl overflow-hidden shadow-md hover:shadow-lg transition-shadow">
-        <div class="bg-ciel rounded-2xl shadow-md p-4 hover:shadow-lg transition-shadow">
-            <div style="background: url({acts.image}) no-repeat center center fixed; 
-            background-size: cover; 
-            height: 100vh; 
-            width: 100vw; 
-            display: flex; 
-            justify-content: center; 
-            align-items: center; 
-            color: white; 
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7); 
-            text-align: center;">
-            <div>
+        <div class="grid grid-cols-1 h-screen w-screen bg-cover bg-center" style="background-image: url({acts.image});">
+            <div class="text-center">
                 <h2 class="font-bold text-xl mb-2">{acts.title}</h2>
                 <p class="text-muted">{acts.description}</p>
             </div>
@@ -52,7 +41,6 @@ const activities = [
         </div>
         </a>
         ))}
-    </div>
     </div>
 
     <div class="text-center py-8 text-sm text-muted">
