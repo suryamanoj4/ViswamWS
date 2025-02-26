@@ -84,3 +84,33 @@ const { inputs, dropdown, resume, button = 'Submit', description=''}= Astro.prop
         )
     }
 </form>
+
+<script>
+document.getElementById('contact-form')?.addEventListener('submit', async (e) => {
+  e.preventDefault();
+  
+  const form = e.target as HTMLFormElement;
+  const formData = new FormData(form);
+  const data = Object.fromEntries(formData.entries());
+
+  try {
+    const response = await fetch('', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(data)
+    });
+
+    if (response.ok) {
+      alert('Thank you for your message! We will get back to you soon.');
+      form.reset();
+    } else {
+      throw new Error('Submission failed');
+    }
+  } catch (error) {
+    console.error('Error submitting form:', error);
+    alert('There was an error submitting your message. Please try again later.');
+  }
+});
+</script>
