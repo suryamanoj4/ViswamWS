@@ -5,6 +5,7 @@ import Stats from '~/components/widgets/Stats.astro';
 import Features from '~/components/widgets/Features.astro';
 import Content from '~/components/widgets/Content.astro';
 import { LineChart } from 'recharts';
+import Button from '~/components/ui/Button.astro';
 import VerticalTimeline from '~/components/VerticalTimeline';
 import { Image } from 'astro:assets';
 import SwechaLogoWhite from '../assets/images/SwechaLogoWhite.png';
@@ -14,6 +15,7 @@ const metadata = {
   title: 'VISWAM.ai - AI for the Global South',
   description: 'Centre of Excellence on AI for the Global South - A Joint Initiative of Swecha and IIIT Hyderabad',
 };
+const button='Apply for Summer of AI Internship';
 ---
 
 <Layout metadata={metadata}>
@@ -35,6 +37,19 @@ const metadata = {
       <div class="text-sm mt-2 text-muted">SEED • NURTURE • GROW • INDIGENOUS</div>
     </Fragment>
   </Hero>
+
+  {
+    button && (
+            <div class="mt-6 grid">
+            <div class="flex justify-center">
+                <Button variant="primary" type="button" class="w-auto px-4 intersect-once intersect-quarter motion-safe:md:opacity-0 motion-safe:md:intersect:animate-fade" onclick="window.location.href='/internships'">
+                    {button}
+                </Button>
+            </div>
+            </div>
+        )
+  }
+  <br/>
 
   <!-- 2024 Goals Stats -->
   <Stats
