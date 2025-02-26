@@ -1,0 +1,38 @@
+---
+import InternFormContainer from '~/components/ui/InternForm.astro';
+import Headline from '~/components/ui/Headline.astro';
+import WidgetWrapper from '~/components/ui/WidgetWrapper.astro';
+import type { Internship as Props } from '~/types';
+
+const {
+  title = await Astro.slots.render('title'),
+  inputs,
+  dropdown,
+  resume,
+  button,
+  description,
+
+  id,
+  isDark = false,
+  classes = {},
+  bg = await Astro.slots.render('bg'),
+} = Astro.props;
+---
+
+<WidgetWrapper id={id} isDark={isDark} containerClass={`max-w-7xl mx-auto ${classes?.container ?? ''}`} bg={bg}>
+  <Headline title={title} />
+
+  {
+    inputs && (
+      <div class="flex flex-col max-w-xl mx-auto rounded-lg backdrop-blur border border-gray-200 dark:border-gray-700 bg-white dark:bg-slate-900 shadow p-4 sm:p-6 lg:p-8 w-full">
+        <InternFormContainer
+          inputs={inputs}
+          dropdown={dropdown}
+          resume={resume}
+          button={button}
+          description={description}
+        />
+      </div>
+    )
+  }
+</WidgetWrapper>
