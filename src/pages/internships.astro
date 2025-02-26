@@ -1,0 +1,101 @@
+---
+// src/pages/contact.astro
+import Layout from '~/layouts/PageLayout.astro';
+import InternUs from '~/components/widgets/Internship.astro';
+import Features from '~/components/widgets/Features.astro';
+
+const metadata = {
+  title: 'Summer of AI Internship 2025',
+  description: 'Get in touch with VISWAM.ai',
+};
+---
+
+<Layout metadata={metadata}>
+
+  <InternUs
+    title="Summer of AI Internship 2025"
+    inputs={[
+      {
+        type: 'text',
+        name: 'full_name',
+        label: 'Full Name',
+      },
+      {
+        type: 'text',
+        name: 'affiliation',
+        label: 'Affiliation (College/Company/Organization Name)',
+      },
+      {
+        type: 'number',
+        name: 'age',
+        label: 'Age',
+      },
+      {
+        type: 'tel',
+        name: 'contact_number',
+        label: 'Contact Number',
+      },
+      {
+        type: 'email',
+        name: 'email',
+        label: 'Email Address',
+      },
+    ]}
+    dropdown={[
+        {
+            type: "select",
+            name: "gender",
+            label: "Gender",
+            options: [
+                { value: "Male", text: "Male" },
+                { value: "Female", text: "Female" },
+            ]
+        },
+        {
+            type: "select",
+            name: "hackathons",
+            label: "Have you participated in any Hackathons?",
+            options: [
+                { value: "Yes", text: "Yes" },
+                { value: "No", text: "No" },
+            ]
+        },
+        {
+            type: "select",
+            name: "aiprojects",
+            label: "Have you worked on any AI projects?",
+            options: [
+                { value: "Yes", text: "Yes" },
+                { value: "No", text: "No" },
+            ]
+        },
+        {
+            type: "select",
+            name: "projects",
+            label: "Have you built any projects outside your college curriculum?",
+            options: [
+                { value: "Yes", text: "Yes" },
+                { value: "No", text: "No" },
+            ]
+        },
+        {
+            type: "select",
+            name: "aicourses",
+            label: "Have you completed any AI courses?",
+            options: [
+                { value: "Yes", text: "Yes" },
+                { value: "No", text: "No" },
+            ]
+        },
+    ]}
+   
+    resume={{
+        type: "file",
+        name: "resume",
+        label: "Upload your resume",
+        accept: ".jpg, .png, .pdf",
+    }}
+  />
+
+  />
+</Layout>
