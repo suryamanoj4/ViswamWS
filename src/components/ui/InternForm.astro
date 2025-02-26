@@ -1,0 +1,86 @@
+---
+import type { InternForm as Props} from '~/types';
+import Button from '~/components/ui/Button.astro';
+
+const { inputs, dropdown, resume, button = 'Submit', description=''}= Astro.props;
+---
+
+<form id="intern-form">
+    {
+        inputs &&
+            inputs.map(
+                ({ type= 'text', name, label='', autocomplete= 'on', placeholder='' }) =>
+                    name &&(
+                        <div class="mb-6">
+                            {label&& (
+                                <label for={name} class="block text-sm font-medium">
+                                    {label}
+                                </label>
+                            )}
+                            <input
+                                type={type}
+                                name={name}
+                                id={name}
+                                autocomplete={autocomplete}
+                                placeholder={placeholder}
+                                class="py-3 px-4 block w-full text-md rounded-lg border border-gray-200 dark:border-gray-700 bg-white dark:bg-slate-900"
+                                required
+                            />
+                        </div>
+                    )
+            )
+    }
+
+    {
+        dropdown &&
+            dropdown.map(drop =>(
+                <div class="mb-6">
+                <label for={drop.name} class="block text-sm font-medium">
+                    {drop.label}
+                </label>
+                <select id={drop.name} name={drop.name} class="py-3 px-4 block w-full text-md rounded-lg border border-gray-200 dark:border-gray-700 bg-white dark:bg-slate-900">
+                {drop.options.map(option=>(
+                    <option value={option.value}>{option.text}</option>
+                ))}
+                </select>
+                </div>
+            ))
+    }
+
+    {
+        resume && (
+            <div class="mt-3 flex flex-col items-start">
+                    <label for={resume.name} class="block text-sm font-medium">
+                        {resume.label}
+                    </label>
+                    <input
+                        type={resume.type}
+                        name={resume.name}
+                        id={resume.name}
+                        accept={resume.accept}
+                        class="mt-2 p-2 border rounded-lg"
+                        required
+                    />
+            </div>
+        )
+
+    }
+
+    {
+        button && (
+            <div class="mt-10 grid">
+                <Button variant="primary" type="submit">
+                    {button}
+                </Button>
+            </div>
+        )
+    }
+
+    {
+        description && (
+            <div class="mt-3 text-center">
+                <p class="text-sm text-gray-600 dark:text-gray-400">{description}</p>
+            </div>
+        )
+    }
+</form>
