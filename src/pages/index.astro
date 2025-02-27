@@ -5,7 +5,6 @@ import Stats from '~/components/widgets/Stats.astro';
 import Features from '~/components/widgets/Features.astro';
 import Content from '~/components/widgets/Content.astro';
 import { LineChart } from 'recharts';
-import Button from '~/components/ui/Button.astro';
 import VerticalTimeline from '~/components/VerticalTimeline';
 import { Image } from 'astro:assets';
 import SwechaLogoWhite from '../assets/images/SwechaLogoWhite.png';
@@ -15,7 +14,6 @@ const metadata = {
   title: 'VISWAM.ai - AI for the Global South',
   description: 'Centre of Excellence on AI for the Global South - A Joint Initiative of Swecha and IIIT Hyderabad',
 };
-const buttons='Apply for Summer of AI Internship';
 
 ---
 
@@ -39,31 +37,21 @@ const buttons='Apply for Summer of AI Internship';
     </Fragment>
   </Hero>
 
-{
-    buttons && (
-            <div class="mt-6 grid">
-            <div class="flex justify-center">
-                <Button variant="primary" type="button" class="w-auto px-4 intersect-once intersect-quarter motion-safe:md:opacity-0 motion-safe:md:intersect:animate-fade" onclick="window.location.href='/internships'">
-                    {buttons}
-                </Button>
-            </div>
-            </div>
-    )
-  }
   <br/>
   <!-- Card Element for AI Days and Hack Days-->
   {
-            <div class="mt-6 grid grid-cols-1 md:grid-cols-2 gap-6 justify-items-center w-[75%] mx-auto intersect-once intersect-quarter motion-safe:md:opacity-0 motion-safe:md:intersect:animate-fade">
+            <div class="mt-6 grid grid-cols-1 md:grid-cols-2 gap-6 justify-items-center w-[75%] items-stretch mx-auto intersect-once intersect-quarter motion-safe:md:opacity-0 motion-safe:md:intersect:animate-fade">
             <a href="https://aidays.io" target="_blank">
-            <div class="bg-gray-100 shadow-md rounded-lg p-6 text-center w-64 hover:bg-gray-200 transition">
-            <h3 class="text-xl font-semibold text-gray-900 ">Join AIDays.io</h3>
-            <p class="text-gray-600 mt-2 text-sm">Explore the AI Conference</p>
+            <div class="bg-blue-600 shadow-md rounded-lg p-6 text-center w-64 hover:bg-blue-300 transition h-full flex flex-col justify-between">
+            <h3 class="text-xl font-semibold text-gray-100 ">Join AIDays 2025</h3>
+            <p class="text-gray-200 mt-2 text-sm">Shaping the Future of AI in India</p>
+            <p class="text-gray-200 mt-2 text-sm">Happening on April 12,13</p>
             </div>
             </a>
-            <a href="https://hackday.aidays.io" target="_blank">
-            <div class="bg-gray-100 shadow-md rounded-lg p-6 text-center w-64 hover:bg-gray-200 transition">
-            <h3 class="text-xl font-semibold text-gray-900">Join AI HackDay</h3>
-            <p class="text-gray-600 mt-2 text-sm">Participate in AI Hack Day 2025</p>
+            <a href="./internships" target="_blank">
+            <div class="bg-blue-600 shadow-md rounded-lg p-6 text-center w-64 hover:bg-blue-300 transition h-full flex flex-col justify-between">
+            <h3 class="text-xl font-semibold text-gray-100">Internships</h3>
+            <p class="text-gray-200 mt-2 text-sm">Apply for Summer of AI Internship</p>
             </div>
             </a>
             </div>
