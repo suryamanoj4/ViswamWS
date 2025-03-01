@@ -12,6 +12,7 @@ const metadata = {
     description: 'Various activities conducted by Viswan AI such as conferences, hackatons and so on.',
 };
 
+
 const themes = [
   {
     title: 'Creative Art',
@@ -41,25 +42,27 @@ const themes = [
         title="AI HackDay 2025"
     >
         <Fragment slot="subtitle">
-            The AI HackDay, conducted by Viswam AI, Swecha, and IIITH, in collaboration with leadikng tech partners, has aimed to revolutionize AI innovation in South. Bringing together students from various colleges from all around Telangana to foster cutting-edge solutions, pushing boundaries of AI for social impact, industry growth, and technological advancements
+        A national-level hackathon designed to inspire the brightest minds to harness the power of Artificial Intelligence to tackle real-world challenges. This event brings together students, industry experts, and cutting-edge AI tools in a collaborative space where innovation meets impact
         </Fragment>
     </Hero>
 
-    <Image src={hack} alt="Hackathon image" style={{width: "100%"}}/>
+    <Image src={hack} alt="Hackathon image" style={{width: "100%"}} />
+
 
     <Stats
-    title="HackDay Milestones"
+    title="Insights"
     stats={[
-      { title: 'Colleges', amount: '18+' },
-      { title: 'Teams', amount: '400+' },
-      { title: 'Participants', amount: '1200+' },
-      { title: 'Projects', amount: '600+' },
+      { title: 'Colleges', amount: '25+' },
+      { title: 'Projects', amount: '750+' },
+      { title: 'Participants', amount: '2500+' },
+      { title: 'Mentors', amount: '100+' },
     ]}
     />
 
-    <Features
-        title="Project Themes"
-        items={themes}
-    />
+
+  <Features
+      title="Project Themes"
+      items={themes}
+  />
 
 </Layout>
