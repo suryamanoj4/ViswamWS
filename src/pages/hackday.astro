@@ -1,0 +1,65 @@
+---
+import Layout from '~/layouts/PageLayout.astro';
+import Hero from '~/components/widgets/Hero.astro';
+import Content from '~/components/widgets/Content.astro';
+import Features from '~/components/widgets/Features.astro';
+import Stats from '~/components/widgets/Stats.astro';
+import { Image } from 'astro:assets';
+import hack from '../assets/images/hack.png';
+
+const metadata = {
+    title: 'Activities',
+    description: 'Various activities conducted by Viswan AI such as conferences, hackatons and so on.',
+};
+
+const themes = [
+  {
+    title: 'Creative Art',
+    description: 'Exploring AI in digital art, music generation, design automation, and creative content production',
+    icon: 'tabler:palette',
+  },
+  {
+    title: 'Education AI',
+    description: 'Revolutionizing learning through personalized AI tutoring, adaptive assessments, and intelligent content delivery systems',
+    icon: 'tabler:school',
+  },
+  {
+    title: 'Agriculture AI',
+    description: 'Transforming farming with precision agriculture, crop monitoring, and sustainable farming practices powered by AI',
+    icon: 'tabler:plant',
+  },
+  {
+    title: 'Healthcare AI',
+    description: 'Advancing medical diagnostics, patient care, and healthcare management with cutting-edge AI solutions',
+    icon: 'tabler:activity',
+  },
+];
+
+---
+<Layout metadata={metadata}>
+    <Hero
+        title="AI HackDay 2025"
+    >
+        <Fragment slot="subtitle">
+            The AI HackDay, conducted by Viswam AI, Swecha, and IIITH, in collaboration with leadikng tech partners, has aimed to revolutionize AI innovation in South. Bringing together students from various colleges from all around Telangana to foster cutting-edge solutions, pushing boundaries of AI for social impact, industry growth, and technological advancements
+        </Fragment>
+    </Hero>
+
+    <Image src={hack} alt="Hackathon image" style={{width: "100%"}}/>
+
+    <Stats
+    title="HackDay Milestones"
+    stats={[
+      { title: 'Colleges', amount: '18+' },
+      { title: 'Teams', amount: '400+' },
+      { title: 'Participants', amount: '1200+' },
+      { title: 'Projects', amount: '600+' },
+    ]}
+    />
+
+    <Features
+        title="Project Themes"
+        items={themes}
+    />
+
+</Layout>
