@@ -14,6 +14,7 @@ const metadata = {
   title: 'VISWAM.ai - AI for the Global South',
   description: 'Centre of Excellence on AI for the Global South - A Joint Initiative of Swecha and IIIT Hyderabad',
 };
+
 ---
 
 <Layout metadata={metadata}>
@@ -35,6 +36,38 @@ const metadata = {
       <div class="text-sm mt-2 text-muted">SEED • NURTURE • GROW • INDIGENOUS</div>
     </Fragment>
   </Hero>
+
+  <br/>
+  <!-- Card Element for AI Days and Hack Days-->
+  {
+            <div class="mt-6 grid grid-cols-1 md:grid-cols-3 gap-6 justify-items-center w-[100%] items-stretch mx-auto intersect-once intersect-quarter motion-safe:md:opacity-0 motion-safe:md:intersect:animate-fade">
+            <a href="https://aidays.io" target="_blank">
+            <div class="bg-blue-600 shadow-md rounded-lg p-6 text-center w-80 hover:bg-blue-300 transition h-full flex flex-col justify-between">
+            <h3 class="text-xl font-semibold text-gray-100 ">Join AI Days 2025</h3>
+            <h3 class="text-xl font-semibold text-gray-100 ">The Premier AI Conference</h3>
+            <p class="text-gray-200 mt-2 text-sm">Experience cutting-edge AI innovations, expert talks & hands-on workshops.</p>
+            <p class="text-gray-200 mt-2 text-sm">📅 April 12-13, 2025</p>
+            </div>
+            </a>
+            <a href="./internships" target="_blank">
+            <div class="bg-blue-600 shadow-md rounded-lg p-6 text-center w-80 hover:bg-blue-300 transition h-full flex flex-col justify-between">
+            <h3 class="text-xl font-semibold text-gray-100">🚀 Summer of AI Internship</h3>
+            <h3 class="text-xl font-semibold text-gray-100">Apply Now!</h3>
+            <p class="text-gray-200 mt-2 text-sm">Gain hands-on experience in AI research & development.</p>
+            <p class="text-gray-200 mt-2 text-sm">💡 Learn, Build & Innovate with Industry Experts!</p>
+            </div>
+            </a>
+            <a href="./hackday" target="_blank">
+            <div class="bg-blue-600 shadow-md rounded-lg p-6 text-center w-80 hover:bg-blue-300 transition h-full flex flex-col justify-between">
+            <h3 class="text-xl font-semibold text-gray-100">AI HackDay 2025 ⚙️</h3>
+            <h3 class="text-xl font-semibold text-gray-100">India’s Ultimate AI Hackathon<h3>
+            <p class="text-gray-200 mt-2 text-sm">Innovate, collaborate, and build groundbreaking AI solutions with top minds in the industry.</p>
+            <p class="text-gray-200 mt-2 text-sm">⚡ Unleashing the Power of AI in India</p>
+            </div>
+            </a>
+            </div>
+  }
+  <br/>
 
   <!-- 2024 Goals Stats -->
   <Stats
