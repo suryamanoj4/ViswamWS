@@ -4,6 +4,8 @@ import Hero from '~/components/widgets/Hero.astro';
 import Content from '~/components/widgets/Content.astro';
 import Features from '~/components/widgets/Features.astro';
 import Stats from '~/components/widgets/Stats.astro';
+import { Image } from 'astro:assets';
+import hack from '../assets/images/hack.png';
 
 const metadata = {
     title: 'Activities',
@@ -42,6 +44,8 @@ const themes = [
             The AI HackDay, conducted by Viswam AI, Swecha, and IIITH, in collaboration with leadikng tech partners, has aimed to revolutionize AI innovation in South. Bringing together students from various colleges from all around Telangana to foster cutting-edge solutions, pushing boundaries of AI for social impact, industry growth, and technological advancements
         </Fragment>
     </Hero>
+
+    <Image src={hack} alt="Hackathon image" />
 
     <Stats
     title="HackDay Milestones"
