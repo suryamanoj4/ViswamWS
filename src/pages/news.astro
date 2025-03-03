@@ -1,0 +1,88 @@
+---
+import Layout from '~/layouts/PageLayout.astro';
+import Hero from '~/components/widgets/Hero.astro';
+import Content from '~/components/widgets/Content.astro';
+import Features from '~/components/widgets/Features.astro';
+import Stats from '~/components/widgets/Stats.astro';
+
+const metadata = {
+    title: 'In the News',
+    description: 'How Viswam AI has been working behind to be COE of AI for Global South',
+};
+
+const ainews = [
+    {
+        title: 'First Telugu LLM by Aug, to get info in local dialect',
+        link: 'https://timesofindia.indiatimes.com/city/hyderabad/first-telugu-llm-by-aug-to-get-info-in-local-dialect/articleshow/118653783.cms',
+        image: 'https://static.toiimg.com/thumb/msid-118653781,imgsize-29740,width-400,height-225,resizemode-72/118653781.jpg',
+    },
+    {
+        title: 'AI Telugu Yantra: A tech-mother tongue tango',
+        link: 'https://timesofindia.indiatimes.com/city/hyderabad/ai-telugu-yatra-a-tech-mother-tongue-tango/articleshow/118429178.cms',
+        image: '',
+    },
+    {
+        title: 'Ram Miryala bats for Swecha Gonthuka, AI Telugu voice assistant',
+        link: 'https://telanganatoday.com/ram-miryala-bats-for-swecha-gonthuka-ai-telugu-voice-assistant',
+        image: 'https://image.telanganatoday.com/wp-content/uploads/2024/02/Ram-Miryala_V_jpg--442x260-4g.webp?sw=1536&dsz=442x260&iw=389&p=false&r=1.25',
+    },
+    {
+        title: 'IIIT Hyderabad Hosts Roundtable on Generative AI Coding',
+        link: 'https://www.bisinfotech.com/iiit-hyderabad-hosts-roundtable-on-generative-ai-coding/',
+        image: 'https://www.bisinfotech.com/wp-content/uploads/2025/02/image001-9.jpg',
+    },
+    {
+        title: 'Generative AI tools for Coding – Why getting all ducks in a row is critical',
+        link: 'https://blogs.iiit.ac.in/ai-coding-tools/',
+        image: 'https://blogs.iiit.ac.in/wp-content/uploads/2025/02/Quantum-Seminar-Series.jpeg',
+    },
+    {
+        title: 'Viswam.AI and Swecha Host Mega AI Hackathon at IIIT Hyderabad',
+        link: 'https://smestreet.in/technology/viswamai-and-swecha-host-mega-ai-hackathon-at-iiit-hyderabad-8660823',
+        image: 'https://img-cdn.thepublive.com/fit-in/1280x960/filters:format(webp)/smstreet/media/media_files/2025/01/08/diFfXx19tBRCqEEQmfXv.jpg',
+    },
+    {
+        title: 'Students create 600 AI-driven solutions at IIIT-Hyd hackathon',
+        link: 'https://www.deccanchronicle.com/southern-states/telangana/students-create-600-ai-driven-solutions-at-iiit-hyd-hackathon-1857043',
+        image: 'https://www.deccanchronicle.com/h-upload/2025/01/27/1885397-ai.jfif',
+    },
+    {
+        title: 'IIIT Hyderabad, Swecha.org Host Mega AI Hackathon with 2,000 Students Developing Innovations for Society',
+        link: 'https://www.bizzbuzz.news/news-capsules/iiit-hyderabad-swechaorg-host-mega-ai-hackathon-with-2000-students-developing-innovations-for-society-1350068',
+        image: 'https://www.bizzbuzz.news/h-upload/2025/01/27/1952842-iiit-hyd.webp',
+    },
+    {
+        title: 'Swecha to engage 1 lakh engineering students to build Telugu LLM with IIIT-H and Ozonotel',
+        link: 'https://www.thehindubusinessline.com/info-tech/swecha-to-rope-in-1-lakh-engineering-students-to-build-telugu-llm-in-collaboration-with-iiit-hyderabad-and-ozonotel/article68190752.ece',
+        image: 'https://bl-i.thgim.com/public/incoming/jbo5t5/article68191125.ece/alternates/LANDSCAPE_1200/swecha.jpg',
+    },
+    {
+        title: 'Swecha released "AI Chandamama Kathalu',
+        link: 'https://ibgnews.com/2024/01/07/swecha-released-ai-chandamama-kathalu/',
+        image: '',
+    },
+];
+---
+
+<Layout metadata={metadata}>
+
+    <div class="max-w-6xl mx-auto px-4 py-16 lg:px-8">
+    <h1 class="text-4xl font-bold mb-4 text-center">In the News</h2>
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {ainews.map(news => (
+        <a href={news.link} target="_blank" class="block rounded-2xl overflow-hidden shadow-md hover:shadow-lg transition-shadow intersect-once intersect-quarter motion-safe:md:opacity-0 motion-safe:md:intersect:animate-fade">
+        <div class="bg-ciel rounded-2xl shadow-md p-4 hover:shadow-lg transition-shadow h-full flex flex-col justify-between">
+            <img src={news.image} alt="Image not found" class="w-full h-48 object-cover rounded-xl mb-4">
+            <h3 class="font-bold text-xl mb-2">{news.title}</h3>
+        </div>
+        </a>
+        ))}
+    </div>
+    </div>
+
+    <div class="text-center py-8 text-sm text-muted">
+    <p>VISWAM.ai - Pronounced 'viswamayee'</p>
+    <p>Venture for Innovation and Social Wellbeing through AI for the Marginalised</p>
+    <p>A Joint Initiative of Swecha and IIIT Hyderabad</p>
+    </div>
+</Layout>
