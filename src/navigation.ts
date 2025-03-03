@@ -131,6 +131,9 @@ export const headerData = {
       href: 'structure',
     },
     {
+      text: 'In the News',
+      href: 'news',
+    {
       text: 'Contact',
       href: 'contact',
     },
