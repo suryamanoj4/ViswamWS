@@ -133,6 +133,7 @@ export const headerData = {
     {
       text: 'In the News',
       href: 'news',
+    },
     {
       text: 'Contact',
       href: 'contact',
